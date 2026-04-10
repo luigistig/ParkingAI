@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+
+{% block title %}Registro de Entrada - Sistema de Parqueadero{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1 class="mb-4">
+            <i class="fas fa-camera"></i> Registro de Entrada
+        </h1>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs mb-4" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="aiTab" data-bs-toggle="tab" data-bs-target="#aiContent"
+                    type="button">
+                    <i class="fas fa-robot"></i> Detección Automática IA
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cameraTab" data-bs-toggle="tab" data-bs-target="#cameraContent"
+                    type="button">
+                    <i class="fas fa-camera"></i> Capturar Foto
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="manualTab" data-bs-toggle="tab" data-bs-target="#manualContent"
+                    type="button">
+                    <i class="fas fa-keyboard"></i> Entrada Manual
+                </button>
+            </li>
+        </ul>
+
+        <!-- Contenido del tab de IA -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="aiContent">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Detección Automática con Inteligencia Artificial</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">
+                            La cámara detectará automáticamente vehículos, placas y colores usando IA.
+                        </p>
+
+                        <!-- Stream de cámara con IA -->
+                        <div id="aiCameraPreview" class="mb-3">
+                            <img id="aiStream" src="{{ url_for('camera.camera_stream_ai') }}" width="100%" height="400"
+                                style="border: 2px solid #ddd; border-radius: 8px;" alt="Stream con detección IA">
+                        </div>
+
+                        <!-- Estado de detección -->
+                        <div id="detectionStatus" class="alert alert-info">
+                            <i class="fas fa-eye"></i> Buscando vehículos...
+                        </div>
+
+                        <!-- Botón de detección automática -->
+                        <div class="d-grid">
+                            <button class="btn btn-success btn-lg" id="autoDetectBtn" onclick="detectVehicleAuto()">
+                                <i class="fas fa-magic"></i> Detectar y Registrar Vehículo
+                            </button>
+                        </div>
+
+                        <!-- Resultado de detección automática -->
+                        <div id="autoDetectionResult" style="display: none;" class="mt-3">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="fas fa-check-circle"></i> Vehículo Detectado</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div id="autoResultContent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido del tab de cámara -->
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Capturar Foto del Vehículo</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Vista previa de cámara -->
+                    <div id="cameraPreview" class="mb-3" style="display: none;">
+                        <video id="videoElement" width="100%" height="400"
+                            style="border: 2px solid #ddd; border-radius: 8px;" autoplay playsinline>
+                        </video>
+                    </div>
+
+                    <!-- Placeholder si no hay cámara -->
+                    <div id="noCameraMessage" class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        Para usar la cámara en directo, acceda desde un dispositivo con cámara
+                        o suba una imagen del vehículo.
+                    </div>
+
+                    <!-- Carga de archivo con IA -->
+                    <div class="mb-3">
+                        <label for="aiImageInput" class="form-label">
+                            <i class="fas fa-robot"></i> Cargar Imagen para Procesamiento con IA
+                        </label>
+                        <input type="file" class="form-control" id="aiImageInput" accept="image/*"
+                            onchange="processImageWithAI(event)">
+                        <small class="text-muted">
+                            La IA detectará automáticamente vehículo, placa y color
+                        </small>
+                    </div>
+
+                    <!-- Preview de imagen procesada con IA -->
+                    <div id="aiImagePreview" class="mb-3" style="display: none;">
+                        <img id="aiPreviewImg" src="" alt="Preview con IA" class="img-fluid rounded">
+                        <div id="aiProcessingStatus" class="mt-2 alert alert-info">
+                            <i class="fas fa-cog fa-spin"></i> Procesando con IA...
+                        </div>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="d-grid gap-2 d-sm-flex">
+                        <button class="btn btn-primary flex-grow-1" id="captureBtn" onclick="captureImage()">
+                            <i class="fas fa-camera"></i> Capturar Foto
+                        </button>
+                        <button class="btn btn-secondary flex-grow-1" id="detectBtn" onclick="detectPlate()"
+                            style="display: none;">
+                            <i class="fas fa-barcode"></i> Detectar Placa
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados de detección -->
+            <div id="detectionResults" style="display: none;" class="mt-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Placas Detectadas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="platesContainer"></div>
+
+                        <button class="btn btn-success btn-lg w-100 mt-3" onclick="proceedWithPlate()">
+                            <i class="fas fa-check"></i> Confirmar Entrada
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido del tab manual -->
+        <div class="tab-pane fade" id="manualContent">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Entrada Manual</h5>
+                </div>
+                <div class="card-body">
+                    <form id="manualEntryForm" onsubmit="submitManualEntry(event)">
+                        <div class="mb-3">
+                            <label for="manualPlaca" class="form-label">
+                                <i class="fas fa-number"></i> Número de Placa *
+                            </label>
+                            <input type="text" class="form-control form-control-lg" id="manualPlaca"
+                                placeholder="ABC-1234" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="manualMarca" class="form-label">
+                                <i class="fas fa-car"></i> Marca
+                            </label>
+                            <input type="text" class="form-control" id="manualMarca" placeholder="Toyota, Honda, etc.">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="manualColor" class="form-label">
+                                <i class="fas fa-palette"></i> Color
+                            </label>
+                            <input type="text" class="form-control" id="manualColor" placeholder="Negro, Blanco, etc.">
+                        </div>
+
+                        <button type="submit" class="btn btn-info btn-lg w-100">
+                            <i class="fas fa-plus-circle"></i> Registrar Entrada
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensajes -->
+    <div id="successMessage" class="alert alert-success mt-4" style="display: none;">
+        <h5><i class="fas fa-check-circle"></i> Entrada Registrada</h5>
+        <p>El vehículo ha sido registrado exitosamente.</p>
+        <a href="/" class="btn btn-sm btn-success">Volver al Inicio</a>
+    </div>
+
+    <div id="errorMessage" class="alert alert-danger mt-4" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorText"></span>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+<script>
+    let currentImagePath = null;
+    let detectedPlates = [];
+    let selectedPlateIndex = 0;
+
+    function handleImageUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        // Mostrar preview
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('previewImg').src = e.target.result;
+            document.getElementById('imagePreview').style.display = 'block';
+            document.getElementById('captureBtn').style.display = 'none';
+            document.getElementById('detectBtn').style.display = 'block';
+
+            // Guardar archivo en servidor
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/api/camera/capture', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        currentImagePath = data.filepath;
+                    } else {
+                        showError('Error al cargar imagen');
+                    }
+                });
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function captureImage() {
+        const btn = document.getElementById('captureBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Capturando...';
+
+        fetch('/api/camera/capture', {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    currentImagePath = data.filepath;
+                    document.getElementById('previewImg').src = data.filepath;
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('captureBtn').style.display = 'none';
+                    document.getElementById('detectBtn').style.display = 'block';
+                } else {
+                    showError('Error al capturar imagen: ' + data.error);
+                }
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-camera"></i> Capturar Foto';
+            });
+    }
+
+    function detectPlate() {
+        if (!currentImagePath) {
+            showError('Primero capture o cargue una imagen');
+            return;
+        }
+
+        const btn = document.getElementById('detectBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detectando...';
+
+        fetch('/api/camera/detect', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                filepath: currentImagePath
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    detectedPlates = data.results;
+                    displayDetectionResults(data.results);
+                } else {
+                    showError(data.error || 'Error en detección');
+                }
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-barcode"></i> Detectar Placa';
+            });
+    }
+
+    function displayDetectionResults(results) {
+        const container = document.getElementById('platesContainer');
+        container.innerHTML = '';
+
+        if (results.length === 0) {
+            container.innerHTML = '<div class="alert alert-warning">No se detectaron placas</div>';
+            document.getElementById('detectionResults').style.display = 'block';
+            return;
+        }
+
+        results.forEach((plate, index) => {
+            const isValid = plate.is_valid ? 'success' : 'warning';
+            const html = `
+            <div class="card mb-2 border-${isValid}">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <img src="${plate.image}" alt="Placa ${index}" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>${plate.plate_number || plate.text}</h5>
+                            <small class="text-muted">
+                                Texto extraído: ${plate.text}<br>
+                                Válido: <span class="badge bg-${isValid}">${plate.is_valid ? 'Sí' : 'No'}</span>
+                            </small>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <button class="btn btn-sm btn-primary" onclick="selectPlate(${index})">
+                                <i class="fas fa-check"></i> Seleccionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+            container.innerHTML += html;
+        });
+
+        document.getElementById('detectionResults').style.display = 'block';
+    }
+
+    function selectPlate(index) {
+        selectedPlateIndex = index;
+        proceedWithPlate();
+    }
+
+    function proceedWithPlate() {
+        const plate = detectedPlates[selectedPlateIndex];
+        if (!plate || !plate.plate_number) {
+            showError('Seleccione una placa válida');
+            return;
+        }
+
+        const formData = {
+            placa: plate.plate_number,
+            ruta_imagen: currentImagePath,
+            marca: '',
+            color: ''
+        };
+
+        fetch('/api/vehicles/checkin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    document.getElementById('cameraContent').style.display = 'none';
+                } else {
+                    showError(data.error || 'Error al registrar entrada');
+                }
+            });
+    }
+
+    function submitManualEntry(event) {
+        event.preventDefault();
+
+        const formData = {
+            placa: document.getElementById('manualPlaca').value,
+            ruta_imagen: null,
+            marca: document.getElementById('manualMarca').value,
+            color: document.getElementById('manualColor').value
+        };
+
+        fetch('/api/vehicles/checkin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('manualEntryForm').reset();
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                } else {
+                    showError(data.error || 'Error al registrar entrada');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError('Error de conexión');
+            });
+    }
+
+    function showError(message) {
+        document.getElementById('errorText').textContent = message;
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
+    }
+</script>
+{% endblock %}

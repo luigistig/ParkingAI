@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Administrador | Parqueadero IA</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px 15px 0 0;
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .login-header i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .login-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .login-header p {
+            font-size: 0.9rem;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+
+        .login-body {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-control {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            outline: none;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            width: 100%;
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .alert {
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .input-group-text {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            color: #667eea;
+        }
+
+        .input-group .form-control {
+            border-left: none;
+        }
+
+        .input-group .form-control:focus {
+            border-left: 2px solid #667eea;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #764ba2;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            margin: 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .spinner-border {
+            display: none;
+        }
+
+        .btn-login.loading .spinner-border {
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .btn-login.loading {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="card login-card">
+            <div class="login-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Administrador</h2>
+                <p>Acceso Restringido</p>
+            </div>
+
+            <div class="login-body">
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endif %}
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="username" class="form-label">
+                            <i class="fas fa-user"></i> Usuario
+                        </label>
+                        <input type="text" id="username" name="username" class="form-control"
+                            placeholder="Ingresa tu usuario" required autocomplete="username" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock"></i> Contraseña
+                        </label>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" class="form-control"
+                                placeholder="Ingresa tu contraseña" required autocomplete="current-password" />
+                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="remember" />
+                        <label for="rememberMe">Recuérdame</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-login">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span class="btn-text">Ingresar</span>
+                    </button>
+                </form>
+
+                <div class="back-link">
+                    <a href="/">
+                        <i class="fas fa-arrow-left"></i> Volver a Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+            passwordInput.setAttribute("type", type);
+        }
+
+        async function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const rememberMe = document.getElementById("rememberMe").checked;
+            const btn = event.target.querySelector(".btn-login");
+
+            btn.classList.add("loading");
+            btn.disabled = true;
+
+            try {
+                const response = await fetch("/api/admin/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password,
+                        remember: rememberMe,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Guardar credenciales si está seleccionado "Recuérdame"
+                    if (rememberMe) {
+                        localStorage.setItem("admin_username", username);
+                    } else {
+                        localStorage.removeItem("admin_username");
+                    }
+                    window.location.href = "/admin";
+                } else {
+                    // Mostrar error
+                    const alertDiv = document.createElement("div");
+                    alertDiv.className = "alert alert-danger alert-dismissible fade show";
+                    alertDiv.role = "alert";
+                    alertDiv.innerHTML = `
+                        <i class="fas fa-exclamation-circle"></i> ${data.error || "Error al iniciar sesión"}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    `;
+                    document.querySelector(".login-body").insertBefore(
+                        alertDiv,
+                        document.getElementById("loginForm")
+                    );
+
+                    btn.classList.remove("loading");
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                const alertDiv = document.createElement("div");
+                alertDiv.className = "alert alert-danger alert-dismissible fade show";
+                alertDiv.role = "alert";
+                alertDiv.innerHTML = `
+                    <i class="fas fa-exclamation-circle"></i> Error de conexión
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                document.querySelector(".login-body").insertBefore(
+                    alertDiv,
+                    document.getElementById("loginForm")
+                );
+
+                btn.classList.remove("loading");
+                btn.disabled = false;
+            }
+        }
+
+        // Cargar nombre de usuario guardado si existe
+        window.addEventListener("DOMContentLoaded", function () {
+            const savedUsername = localStorage.getItem("admin_username");
+            if (savedUsername) {
+                document.getElementById("username").value = savedUsername;
+                document.getElementById("rememberMe").checked = true;
+            }
+        });
+    </script>
+</body>
+
+</html>

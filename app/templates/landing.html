@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}Sistema de Parqueadero Inteligente{% endblock %}
+
+{% block content %}
+<style>
+    .landing-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .landing-content {
+        text-align: center;
+        animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .landing-title {
+        color: white;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .landing-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.3rem;
+        margin-bottom: 50px;
+        font-weight: 300;
+    }
+
+    .buttons-container {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .option-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        min-width: 280px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .option-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .option-card:nth-child(1) {
+        border-top: 5px solid #28a745;
+    }
+
+    .option-card:nth-child(1):hover {
+        border-top-color: #1e7e34;
+    }
+
+    .option-card:nth-child(2) {
+        border-top: 5px solid #667eea;
+    }
+
+    .option-card:nth-child(2):hover {
+        border-top-color: #5568d3;
+    }
+
+    .option-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .option-card:nth-child(1) .option-icon {
+        color: #28a745;
+    }
+
+    .option-card:nth-child(2) .option-icon {
+        color: #667eea;
+    }
+
+    .option-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .option-description {
+        color: #666;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .option-button {
+        display: inline-block;
+        padding: 12px 40px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .option-card:nth-child(1) .option-button {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white;
+    }
+
+    .option-card:nth-child(1) .option-button:hover {
+        background: linear-gradient(135deg, #20c997, #28a745);
+        transform: scale(1.05);
+    }
+
+    .option-card:nth-child(2) .option-button {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+    }
+
+    .option-card:nth-child(2) .option-button:hover {
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        transform: scale(1.05);
+    }
+
+    .footer-text {
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 50px;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .landing-title {
+            font-size: 2.5rem;
+        }
+
+        .landing-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .option-card {
+            min-width: 250px;
+            padding: 30px;
+        }
+
+        .buttons-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .option-icon {
+            font-size: 3rem;
+        }
+
+        .option-title {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+<div class="landing-container">
+    <div class="landing-content">
+        <h1 class="landing-title">
+            <i class="fas fa-parking"></i> ParkingIA
+        </h1>
+        <p class="landing-subtitle">Sistema Inteligente de Parqueadero</p>
+
+        <div class="buttons-container">
+            <!-- Opción Usuario -->
+            <a href="/usuario" class="option-card">
+                <i class="fas fa-user option-icon"></i>
+                <h2 class="option-title">Soy Usuario</h2>
+                <p class="option-description">
+                    Busca tu vehículo y realiza el pago de tu estancia en el parqueadero
+                </p>
+                <button class="option-button" onclick="event.preventDefault(); window.location.href='/usuario';">
+                    Ingresar <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </a>
+
+            <!-- Opción Administrador -->
+            <a href="/admin/login" class="option-card">
+                <i class="fas fa-shield-alt option-icon"></i>
+                <h2 class="option-title">Administrador</h2>
+                <p class="option-description">
+                    Acceso al panel de control y gestión del sistema de parqueadero
+                </p>
+                <button class="option-button" onclick="event.preventDefault(); window.location.href='/admin/login';">
+                    Acceder <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </a>
+        </div>
+
+        <p class="footer-text">
+            <i class="fas fa-lock"></i> El acceso administrativo está protegido
+        </p>
+    </div>
+</div>
+{% endblock %}

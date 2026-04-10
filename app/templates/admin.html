@@ -1,0 +1,369 @@
+{% extends "base.html" %}
+
+{% block title %}Administración - Sistema de Parqueadero{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">
+            <i class="fas fa-cog"></i> Panel de Administración
+        </h1>
+    </div>
+</div>
+
+<!-- Tabs de administración -->
+<ul class="nav nav-tabs mb-4" role="tablist">
+    <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#dashboardTab">
+            <i class="fas fa-chart-line"></i> Dashboard
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#vehiclesTab">
+            <i class="fas fa-car"></i> Vehículos
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#logsTab">
+            <i class="fas fa-log"></i> Registros
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#settingsTab">
+            <i class="fas fa-sliders-h"></i> Configuración
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <!-- Dashboard -->
+    <div class="tab-pane fade show active" id="dashboardTab">
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body text-center">
+                        <h6>Vehículos Activos</h6>
+                        <h2 id="adminActiveVehicles">0</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                        <h6>Ingresos Este Mes</h6>
+                        <h2 id="adminMonthIncome">$0</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body text-center">
+                        <h6>Total Procesados Hoy</h6>
+                        <h2 id="adminTodayProcessed">0</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-warning text-white">
+                    <div class="card-body text-center">
+                        <h6>Duración Promedio</h6>
+                        <h2 id="adminAvgDuration">0m</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Actividad Reciente</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="recentActivityFeed" class="list-group">
+                            <!-- Cargado dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gestión de Vehículos -->
+    <div class="tab-pane fade" id="vehiclesTab">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="mb-0">Gestionar Vehículos</h5>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addVehicleModal">
+                            <i class="fas fa-plus"></i> Agregar Vehículo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <select id="vehicleStatusFilter" class="form-select" onchange="loadAdminVehicles()">
+                        <option value="">Todos los estados</option>
+                        <option value="dentro">Dentro</option>
+                        <option value="pagado">Pagado</option>
+                        <option value="salido">Salido</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover" id="adminVehiclesTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Placa</th>
+                                <th>Entrada</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminVehiclesBody">
+                            <tr>
+                                <td colspan="4" class="text-center">Cargando...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registros del Sistema -->
+    <div class="tab-pane fade" id="logsTab">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Registros del Sistema</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm" id="logsTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Acción</th>
+                                <th>Detalles</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logsBody">
+                            <tr>
+                                <td colspan="4" class="text-center">Cargando...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Configuración -->
+    <div class="tab-pane fade" id="settingsTab">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Configuración del Sistema</h5>
+            </div>
+            <div class="card-body">
+                <form id="settingsForm">
+                    <h6 class="mb-3">Tarifas de Estacionamiento</h6>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="tariffPerHour" class="form-label">Tarifa por Hora (COP)</label>
+                            <input type="number" class="form-control" id="tariffPerHour" value="2000">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="minCharge" class="form-label">Cargo Mínimo (COP)</label>
+                            <input type="number" class="form-control" id="minCharge" value="500">
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h6 class="mb-3">Configuración de Cámara</h6>
+
+                    <div class="mb-3">
+                        <label for="cameraIndex" class="form-label">Índice de Cámara</label>
+                        <input type="number" class="form-control" id="cameraIndex" value="0" min="0">
+                        <small class="text-muted">0 para cámara predeterminada</small>
+                    </div>
+
+                    <hr>
+
+                    <h6 class="mb-3">Backup de Base de Datos</h6>
+
+                    <button type="button" class="btn btn-warning" onclick="backupDatabase()">
+                        <i class="fas fa-download"></i> Descargar Backup
+                    </button>
+
+                    <hr>
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        <i class="fas fa-save"></i> Guardar Configuración
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para agregar vehículo -->
+<div class="modal fade" id="addVehicleModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Vehículo Manual</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addVehicleForm">
+                    <div class="mb-3">
+                        <label for="newPlaca" class="form-label">Placa *</label>
+                        <input type="text" class="form-control" id="newPlaca" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newMarca" class="form-label">Marca</label>
+                        <input type="text" class="form-control" id="newMarca">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newColor" class="form-label">Color</label>
+                        <input type="text" class="form-control" id="newColor">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="submitAddVehicle()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        loadAdminDashboard();
+        loadAdminVehicles();
+        loadSystemLogs();
+        setInterval(loadAdminDashboard, 60000);
+    });
+
+    function loadAdminDashboard() {
+        fetch('/admin/statistics')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const stats = data.statistics;
+                    document.getElementById('adminActiveVehicles').textContent = stats.active_vehicles;
+                    document.getElementById('adminMonthIncome').textContent = '$' + stats.month_income.toLocaleString();
+                    document.getElementById('adminTodayProcessed').textContent = stats.today_vehicles;
+
+                    const avgMins = Math.round(stats.avg_duration_minutes);
+                    const hrs = Math.floor(avgMins / 60);
+                    const mins = avgMins % 60;
+                    document.getElementById('adminAvgDuration').textContent =
+                        hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
+                }
+            });
+    }
+
+    function loadAdminVehicles() {
+        const status = document.getElementById('vehicleStatusFilter').value;
+        let url = '/admin/vehicles';
+        if (status) url += `?estado=${status}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('adminVehiclesBody');
+                tbody.innerHTML = '';
+
+                if (data.vehicles && data.vehicles.length > 0) {
+                    data.vehicles.forEach(v => {
+                        const entrada = new Date(v.hora_entrada);
+                        const row = `
+                        <tr>
+                            <td><strong>${v.placa}</strong></td>
+                            <td>${entrada.toLocaleString('es-CO')}</td>
+                            <td><span class="badge bg-${getStatusColor(v.estado)}">${v.estado}</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-warning" onclick="editVehicle(${v.id})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                        tbody.innerHTML += row;
+                    });
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="4" class="text-center text-muted">Sin registros</td></tr>';
+                }
+            });
+    }
+
+    function loadSystemLogs() {
+        fetch('/admin/logs?per_page=50')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('logsBody');
+                tbody.innerHTML = '';
+
+                if (data.logs && data.logs.length > 0) {
+                    data.logs.forEach(log => {
+                        const fecha = new Date(log.fecha);
+                        const row = `
+                        <tr>
+                            <td>${fecha.toLocaleString('es-CO')}</td>
+                            <td><strong>${log.accion}</strong></td>
+                            <td>${log.detalles}</td>
+                            <td>${log.usuario}</td>
+                        </tr>
+                    `;
+                        tbody.innerHTML += row;
+                    });
+                }
+            });
+    }
+
+    function getStatusColor(status) {
+        const colors = { 'dentro': 'primary', 'pagado': 'success', 'salido': 'secondary' };
+        return colors[status] || 'warning';
+    }
+
+    function submitAddVehicle() {
+        const formData = {
+            placa: document.getElementById('newPlaca').value,
+            marca: document.getElementById('newMarca').value,
+            color: document.getElementById('newColor').value
+        };
+
+        fetch('/admin/vehicles', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    bootstrap.Modal.getInstance(document.getElementById('addVehicleModal')).hide();
+                    loadAdminVehicles();
+                    document.getElementById('addVehicleForm').reset();
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            });
+    }
+
+    function backupDatabase() {
+        // Implementar backup
+        alert('Función de backup en desarrollo');
+    }
+</script>
+{% endblock %}

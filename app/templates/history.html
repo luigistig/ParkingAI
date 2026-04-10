@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block title %}Historial - Sistema de Parqueadero{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">
+            <i class="fas fa-history"></i> Historial de Vehículos
+        </h1>
+
+        <!-- Filtros -->
+        <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Filtros</h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="statusFilter" class="form-label">Estado</label>
+                        <select id="statusFilter" class="form-select" onchange="loadHistory()">
+                            <option value="">Todos</option>
+                            <option value="dentro">Dentro</option>
+                            <option value="pagado">Pagado</option>
+                            <option value="salido">Salido</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dateFilterFrom" class="form-label">Desde</label>
+                        <input type="date" id="dateFilterFrom" class="form-control" onchange="loadHistory()">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dateFilterTo" class="form-label">Hasta</label>
+                        <input type="date" id="dateFilterTo" class="form-control" onchange="loadHistory()">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="plateFilter" class="form-label">Buscar Placa</label>
+                        <input type="text" id="plateFilter" class="form-control" placeholder="ABC-1234">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de historial -->
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-table"></i> Registros
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="historyTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Placa</th>
+                                <th>Entrada</th>
+                                <th>Salida</th>
+                                <th>Duración</th>
+                                <th>Valor</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyBody">
+                            <tr>
+                                <td colspan="7" class="text-center text-muted">
+                                    <i class="fas fa-spinner fa-spin"></i> Cargando...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Paginación -->
+                <nav aria-label="Paginación" id="pagination" style="display: none;">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#" onclick="loadHistoryPage(1)">Primera</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="previousPage()">Anterior</a></li>
+                        <li class="page-item active"><span class="page-link" id="currentPage">1</span></li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="nextPage()">Siguiente</a></li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="lastPage()">Última</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let currentHistoryPage = 1;
+    let totalHistoryPages = 1;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        loadHistory();
+    });
+
+    function loadHistory() {
+        currentHistoryPage = 1;
+        loadHistoryPage(1);
+    }
+
+    function loadHistoryPage(page) {
+        currentHistoryPage = page;
+        const status = document.getElementById('statusFilter').value;
+        const placa = document.getElementById('plateFilter').value;
+
+        let url = `/admin/vehicles?page=${page}&per_page=20`;
+        if (status) url += `&estado=${status}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    totalHistoryPages = data.pages;
+                    displayHistory(data.vehicles);
+                    updatePagination(page, data.pages);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('historyBody').innerHTML =
+                    '<tr><td colspan="7" class="text-danger">Error al cargar datos</td></tr>';
+            });
+    }
+
+    function displayHistory(vehicles) {
+        const tbody = document.getElementById('historyBody');
+        tbody.innerHTML = '';
+
+        if (!vehicles || vehicles.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted">No hay registros</td></tr>';
+            return;
+        }
+
+        vehicles.forEach(vehicle => {
+            const entrada = new Date(vehicle.hora_entrada);
+            const salida = vehicle.hora_salida ? new Date(vehicle.hora_salida) : null;
+
+            let duracion = '-';
+            if (vehicle.tiempo_total) {
+                const horas = Math.floor(vehicle.tiempo_total / 60);
+                const minutos = vehicle.tiempo_total % 60;
+                duracion = `${horas}h ${minutos}m`;
+            }
+
+            const statusBadge = {
+                'dentro': 'primary',
+                'pagado': 'success',
+                'salido': 'secondary'
+            }[vehicle.estado] || 'warning';
+
+            const valor = vehicle.valor_a_pagar ? `$${vehicle.valor_a_pagar.toLocaleString()}` : '-';
+
+            const row = `
+            <tr>
+                <td><strong>${vehicle.placa}</strong></td>
+                <td>${entrada.toLocaleString('es-CO')}</td>
+                <td>${salida ? salida.toLocaleString('es-CO') : '-'}</td>
+                <td>${duracion}</td>
+                <td>${valor}</td>
+                <td><span class="badge bg-${statusBadge}">${vehicle.estado}</span></td>
+                <td>
+                    <button class="btn btn-sm btn-info" onclick="viewDetails(${vehicle.id})">
+                        <i class="fas fa-eye"></i> Ver
+                    </button>
+                </td>
+            </tr>
+        `;
+            tbody.innerHTML += row;
+        });
+    }
+
+    function viewDetails(vehicleId) {
+        // Implementar modal de detalles si es necesario
+        alert('Ver detalles del vehículo: ' + vehicleId);
+    }
+
+    function updatePagination(current, total) {
+        if (total <= 1) {
+            document.getElementById('pagination').style.display = 'none';
+        } else {
+            document.getElementById('pagination').style.display = 'block';
+            document.getElementById('currentPage').textContent = current;
+        }
+    }
+
+    function previousPage() {
+        if (currentHistoryPage > 1) {
+            loadHistoryPage(currentHistoryPage - 1);
+        }
+    }
+
+    function nextPage() {
+        if (currentHistoryPage < totalHistoryPages) {
+            loadHistoryPage(currentHistoryPage + 1);
+        }
+    }
+
+    function lastPage() {
+        loadHistoryPage(totalHistoryPages);
+    }
+</script>
+{% endblock %}

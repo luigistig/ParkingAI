@@ -1,0 +1,368 @@
+/* Estilos personalizados para el Sistema de Parqueadero */
+
+:root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --dark-color: #343a40;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+    color: var(--success-color);
+}
+
+/* Tarjetas */
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    font-weight: 600;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Botones */
+.btn {
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-lg {
+    padding: 12px 20px;
+    font-size: 1rem;
+}
+
+/* Tablas */
+.table {
+    background: white;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table td,
+.table th {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* Alertas */
+.alert {
+    border: none;
+    border-left: 4px solid;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    border-left-color: var(--success-color);
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    border-left-color: var(--danger-color);
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-warning {
+    border-left-color: var(--warning-color);
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.alert-info {
+    border-left-color: var(--primary-color);
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Formularios */
+.form-control,
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Input groups */
+.input-group {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Tabs */
+.nav-tabs {
+    border-bottom: 2px solid #ddd;
+}
+
+.nav-tabs .nav-link {
+    color: #666;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    background-color: transparent;
+}
+
+/* Main content */
+main {
+    min-height: calc(100vh - 200px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color) !important;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Cards de estadísticas */
+.card.bg-primary,
+.card.bg-success,
+.card.bg-info,
+.card.bg-warning {
+    border: none;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card.bg-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.card.bg-success {
+    background: linear-gradient(135deg, #48c774 0%, #36b870 100%) !important;
+}
+
+.card.bg-info {
+    background: linear-gradient(135deg, #0dcaf0 0%, #0ba5e4 100%) !important;
+}
+
+.card.bg-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ffb800 100%) !important;
+}
+
+/* Imágenes */
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Video */
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background: #000;
+}
+
+/* Loading spinner */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Modal */
+.modal-content {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 15px;
+    }
+
+    .btn-lg {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* Status badges con animación */
+.badge {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Tabla responsiva */
+.table-responsive {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* List group */
+.list-group-item {
+    border: 1px solid #ddd;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Paginación */
+.pagination {
+    margin-top: 20px;
+}
+
+.page-link {
+    color: var(--primary-color);
+    border: 1px solid #ddd;
+}
+
+.page-link:hover {
+    background-color: #f8f9fa;
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}

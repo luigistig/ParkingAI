@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Sistema de Parqueadero{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1 class="mb-4">
+            <i class="fas fa-parking"></i> Panel de Control
+        </h1>
+    </div>
+</div>
+
+<!-- Tarjetas de estadísticas -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h6 class="card-title">Vehículos Activos</h6>
+                <h3 id="activeVehicles">0</h3>
+                <small><i class="fas fa-car"></i> Dentro del parqueadero</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h6 class="card-title">Ingresos Hoy</h6>
+                <h3 id="todayIncome">$0</h3>
+                <small><i class="fas fa-money-bill"></i> Total recaudado</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <h6 class="card-title">Vehículos Procesados</h6>
+                <h3 id="todayVehicles">0</h3>
+                <small><i class="fas fa-chart-bar"></i> Hoy</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <h6 class="card-title">Espacios Disponibles</h6>
+                <h3 id="availableSpaces">∞</h3>
+                <small><i class="fas fa-square"></i> Sin límite</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de vehículos activos -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-list"></i> Vehículos Actualmente Estacionados
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="activeVehiclesTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Placa</th>
+                                <th>Marca</th>
+                                <th>Color</th>
+                                <th>Hora Entrada</th>
+                                <th>Tiempo Estancia</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vehiclesBody">
+                            <tr>
+                                <td colspan="6" class="text-center text-muted">
+                                    <i class="fas fa-spinner fa-spin"></i> Cargando...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Botones de acciones rápidas -->
+<div class="row mt-4">
+    <div class="col-md-6">
+        <a href="/entrada" class="btn btn-success btn-lg w-100">
+            <i class="fas fa-plus-circle"></i> Registrar Entrada
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a href="/pago" class="btn btn-primary btn-lg w-100">
+            <i class="fas fa-money-check"></i> Procesar Pago
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        loadDashboardData();
+        setInterval(loadDashboardData, 30000); // Actualizar cada 30 segundos
+    });
+
+    function loadDashboardData() {
+        // Cargar estadísticas
+        fetch('/admin/statistics')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('activeVehicles').textContent = data.statistics.active_vehicles;
+                    document.getElementById('todayIncome').textContent = '$' + data.statistics.today_income.toLocaleString();
+                    document.getElementById('todayVehicles').textContent = data.statistics.today_vehicles;
+                }
+            });
+
+        // Cargar vehículos activos
+        fetch('/api/vehicles')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('vehiclesBody');
+                tbody.innerHTML = '';
+
+                if (data.vehicles && data.vehicles.length > 0) {
+                    data.vehicles.forEach(vehicle => {
+                        const entrada = new Date(vehicle.hora_entrada);
+                        const ahora = new Date();
+                        const minutos = Math.floor((ahora - entrada) / 60000);
+                        const horas = Math.floor(minutos / 60);
+
+                        let tiempoEstancia = '';
+                        if (horas > 0) {
+                            tiempoEstancia = `${horas}h ${minutos % 60}m`;
+                        } else {
+                            tiempoEstancia = `${minutos}m`;
+                        }
+
+                        const row = `
+                        <tr>
+                            <td><strong>${vehicle.placa}</strong></td>
+                            <td>${vehicle.marca || '-'}</td>
+                            <td>${vehicle.color || '-'}</td>
+                            <td>${entrada.toLocaleTimeString('es-CO')}</td>
+                            <td>${tiempoEstancia}</td>
+                            <td>
+                                <a href="/pago?placa=${vehicle.placa}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-credit-card"></i> Pagar
+                                </a>
+                            </td>
+                        </tr>
+                    `;
+                        tbody.innerHTML += row;
+                    });
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted">No hay vehículos activos</td></tr>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('vehiclesBody').innerHTML =
+                    '<tr><td colspan="6" class="text-center text-danger">Error al cargar datos</td></tr>';
+            });
+    }
+</script>
+{% endblock %}

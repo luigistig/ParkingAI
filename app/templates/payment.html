@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+
+{% block title %}Pago - Sistema de Parqueadero{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <a href="/usuario" class="btn btn-secondary mb-3">
+            <i class="fas fa-arrow-left"></i> Volver
+        </a>
+        <h1 class="mb-4">
+            <i class="fas fa-money-check"></i> Procesar Pago
+        </h1>
+
+        <!-- Sección de búsqueda -->
+        <div id="searchSection" class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Buscar Vehículo</h5>
+            </div>
+            <div class="card-body">
+                <form id="searchForm" onsubmit="searchVehicle(event)">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" id="plateInput"
+                            placeholder="Ingrese número de placa (ej: ABC-1234)" required>
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                    </div>
+                    <small class="text-muted d-block mt-2">
+                        Ingrese la placa del vehículo para consultar el tiempo estacionado y valor a pagar
+                    </small>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sección de resultado -->
+        <div id="resultSection" style="display: none;">
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Información del Vehículo</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Galería de imágenes -->
+                        <div class="col-md-4">
+                            <div id="photosCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img id="vehicleImage" src="" alt="Vehículo" class="d-block w-100 rounded"
+                                            style="max-height: 300px; object-fit: cover;">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#photosCarousel"
+                                    data-bs-slide="prev" style="display: none;" id="prevBtn">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#photosCarousel"
+                                    data-bs-slide="next" style="display: none;" id="nextBtn">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div id="photosCount" class="text-center text-muted mt-2" style="display: none;">
+                                <small>Foto <span id="currentPhotoIndex">1</span> de <span
+                                        id="totalPhotos">1</span></small>
+                            </div>
+                        </div>
+
+                        <!-- Información -->
+                        <div class="col-md-8">
+                            <p><strong>Placa:</strong> <span id="resultPlaca"></span></p>
+                            <p><strong>Marca:</strong> <span id="resultMarca"></span></p>
+                            <p><strong>Color:</strong> <span id="resultColor"></span></p>
+                            <p><strong>Hora Entrada:</strong> <span id="resultEntrada"></span></p>
+                            <p><strong>Tiempo Estacionado:</strong> <span id="resultDuracion"
+                                    class="badge bg-info"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de pago -->
+            <div class="card mb-4 border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Resumen de Pago</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6>Detalles del cálculo</h6>
+                            <ul class="list-unstyled">
+                                <li>Horas: <span id="tariffHours">0</span>h</li>
+                                <li>Minutos: <span id="tariffMinutes">0</span>m</li>
+                                <li>Horas a cobrar: <strong><span id="hoursToCharge">1</span></strong></li>
+                                <li>Tarifa por hora: <strong>$2.000</strong></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <h6>Valor a Pagar</h6>
+                            <h2 class="text-success">
+                                <span id="paymentAmount">$0</span>
+                            </h2>
+                            <small class="text-muted">Pesos Colombianos (COP)</small>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Métodos de pago -->
+                    <h6 class="mb-3">Método de Pago</h6>
+                    <div class="mb-3">
+                        <select id="methodSelect" class="form-select">
+                            <option value="efectivo">Efectivo</option>
+                            <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                            <option value="transferencia">Transferencia Bancaria</option>
+                            <option value="qr">Código QR</option>
+                        </select>
+                    </div>
+
+                    <!-- Botón de pago -->
+                    <button id="paymentBtn" class="btn btn-success btn-lg w-100" onclick="processPayment()">
+                        <i class="fas fa-check-circle"></i> Confirmar Pago
+                    </button>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary w-100" onclick="resetSearch()">
+                <i class="fas fa-arrow-left"></i> Buscar Otro Vehículo
+            </button>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div id="errorMessage" class="alert alert-danger" style="display: none;" role="alert">
+            <i class="fas fa-exclamation-circle"></i> <span id="errorText"></span>
+        </div>
+
+        <!-- Mensaje de éxito -->
+        <div id="successMessage" class="alert alert-success" style="display: none;" role="alert">
+            <h5><i class="fas fa-check-circle"></i> Pago Completado</h5>
+            <p>El vehículo ha sido registrado como pagado.</p>
+            <button class="btn btn-sm btn-success" onclick="downloadReceipt()">
+                <i class="fas fa-download"></i> Descargar Recibo
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let currentVehicleId = null;
+    let currentTariff = null;
+    let currentPhotos = [];
+
+    // Verificar si hay un ID en los parámetros de URL
+    function getURLParameter(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name);
+    }
+
+    // Cargar vehículo automáticamente si viene desde búsqueda de usuario
+    window.addEventListener('DOMContentLoaded', function () {
+        const vehicleId = getURLParameter('id');
+        if (vehicleId) {
+            loadVehicleById(vehicleId);
+        }
+    });
+
+    function loadVehicleById(vehicleId) {
+        fetch(`/api/vehicles/${vehicleId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    currentVehicleId = data.vehicle.id;
+                    currentTariff = data.tariff;
+                    displayVehicleInfo(data.vehicle, data.tariff);
+                    loadVehiclePhotos(data.vehicle.placa);
+
+                    // Ocultar búsqueda
+                    document.getElementById('searchSection').style.display = 'none';
+                    document.getElementById('resultSection').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'none';
+                } else {
+                    showError(data.error || 'Vehículo no encontrado');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError('Error al cargar vehículo');
+            });
+    }
+
+    function searchVehicle(event) {
+        event.preventDefault();
+        const placa = document.getElementById('plateInput').value.trim().toUpperCase();
+
+        if (!placa) {
+            showError('Ingrese un número de placa');
+            return;
+        }
+
+        fetch(`/api/vehicles/search/${placa}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    currentVehicleId = data.vehicle.id;
+                    currentTariff = data.tariff;
+                    displayVehicleInfo(data.vehicle, data.tariff);
+
+                    // Cargar fotos del vehículo
+                    loadVehiclePhotos(placa);
+
+                    document.getElementById('resultSection').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'none';
+                } else {
+                    showError(data.error || 'Vehículo no encontrado');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError('Error al buscar vehículo');
+            });
+    }
+
+    function loadVehiclePhotos(placa) {
+        fetch(`/api/payments/photos?placa=${encodeURIComponent(placa)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.photos && data.photos.length > 0) {
+                    currentPhotos = data.photos;
+                    displayPhotosCarousel(data.photos);
+                } else {
+                    // Si no hay fotos, mostrar la imagen principal
+                    currentPhotos = [];
+                    document.getElementById('photosCount').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error cargando fotos:', error);
+            });
+    }
+
+    function displayPhotosCarousel(photos) {
+        const carousel = document.getElementById('photosCarousel');
+        const carouselInner = carousel.querySelector('.carousel-inner');
+
+        // Limpiar items anteriores
+        carouselInner.innerHTML = '';
+
+        // Agregar cada foto
+        photos.forEach((photo, index) => {
+            const item = document.createElement('div');
+            item.className = 'carousel-item';
+            if (index === 0) item.classList.add('active');
+
+            const img = document.createElement('img');
+            img.src = photo.ruta_imagen;
+            img.alt = `Foto ${index + 1}`;
+            img.className = 'd-block w-100 rounded';
+            img.style.cssText = 'max-height: 300px; object-fit: cover;';
+
+            item.appendChild(img);
+            carouselInner.appendChild(item);
+        });
+
+        // Mostrar controles si hay múltiples fotos
+        if (photos.length > 1) {
+            document.getElementById('prevBtn').style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'block';
+            document.getElementById('photosCount').style.display = 'block';
+            document.getElementById('totalPhotos').textContent = photos.length;
+
+            // Actualizar el contador cuando cambien las fotos
+            carousel.addEventListener('slid.bs.carousel', function () {
+                const activeIndex = Array.from(carouselInner.children).findIndex(
+                    item => item.classList.contains('active')
+                );
+                document.getElementById('currentPhotoIndex').textContent = activeIndex + 1;
+            });
+        }
+    }
+
+    function displayVehicleInfo(vehicle, tariff) {
+        document.getElementById('resultPlaca').textContent = vehicle.placa;
+        document.getElementById('resultMarca').textContent = vehicle.marca || 'N/A';
+        document.getElementById('resultColor').textContent = vehicle.color || 'N/A';
+
+        const entrada = new Date(vehicle.hora_entrada);
+        document.getElementById('resultEntrada').textContent =
+            entrada.toLocaleString('es-CO');
+
+        // Mostrar duración
+        const ahora = new Date();
+        const minutos = Math.floor((ahora - entrada) / 60000);
+        const horas = Math.floor(minutos / 60);
+        const minutosRestantes = minutos % 60;
+
+        let duracionText = '';
+        if (horas > 0) {
+            duracionText = `${horas}h ${minutosRestantes}m`;
+        } else {
+            duracionText = `${minutosRestantes}m`;
+        }
+
+        document.getElementById('resultDuracion').textContent = duracionText;
+
+        // Mostrar tarifa
+        document.getElementById('tariffHours').textContent = tariff.hours;
+        document.getElementById('tariffMinutes').textContent = tariff.remaining_minutes;
+        document.getElementById('hoursToCharge').textContent = tariff.hours_to_charge;
+        document.getElementById('paymentAmount').textContent =
+            tariff.amount_formatted || `$${tariff.amount.toLocaleString()}`;
+
+        // Mostrar imagen
+        if (vehicle.ruta_imagen) {
+            document.getElementById('vehicleImage').src = vehicle.ruta_imagen;
+        }
+    }
+
+    function processPayment() {
+        if (!currentVehicleId || !currentTariff) {
+            showError('Información de vehículo incompleta');
+            return;
+        }
+
+        const methodSelect = document.getElementById('methodSelect').value;
+        const paymentBtn = document.getElementById('paymentBtn');
+
+        paymentBtn.disabled = true;
+        paymentBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+
+        fetch('/api/payments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                vehicle_id: currentVehicleId,
+                monto: currentTariff.amount,
+                metodo_pago: methodSelect
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('resultSection').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+
+                    // Guardar datos del recibo
+                    window.lastReceipt = data.receipt;
+                } else {
+                    showError(data.error || 'Error al procesar pago');
+                    paymentBtn.disabled = false;
+                    paymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirmar Pago';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError('Error de conexión');
+                paymentBtn.disabled = false;
+                paymentBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirmar Pago';
+            });
+    }
+
+    function showError(message) {
+        const errorMsg = document.getElementById('errorMessage');
+        document.getElementById('errorText').textContent = message;
+        errorMsg.style.display = 'block';
+    }
+
+    function resetSearch() {
+        document.getElementById('searchForm').reset();
+        document.getElementById('resultSection').style.display = 'none';
+        document.getElementById('errorMessage').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'none';
+        currentVehicleId = null;
+    }
+
+    function downloadReceipt() {
+        if (!window.lastReceipt) return;
+
+        const receipt = window.lastReceipt;
+        const text = `
+RECIBO DE PAGO - PARQUEADERO IA
+================================
+Placa: ${receipt.placa}
+Entrada: ${new Date(receipt.entrada).toLocaleString('es-CO')}
+Salida: ${new Date(receipt.salida).toLocaleString('es-CO')}
+Duración: ${receipt.duracion}
+Monto Pagado: $${receipt.monto}
+Método: ${receipt.metodo}
+Fecha: ${new Date(receipt.timestamp).toLocaleString('es-CO')}
+================================
+¡Gracias por usar nuestro servicio!
+    `;
+
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `recibo_${receipt.placa}_${new Date().getTime()}.txt`;
+        a.click();
+    }
+
+    // Cargar parámetro de placa si existe
+    window.addEventListener('load', function () {
+        const params = new URLSearchParams(window.location.search);
+        const placa = params.get('placa');
+        if (placa) {
+            document.getElementById('plateInput').value = placa;
+            setTimeout(searchVehicle, 100);
+        }
+    });
+</script>
+{% endblock %}

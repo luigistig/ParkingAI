@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+{% block title %}Buscar Vehículo - Sistema de Parqueadero{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <a href="/" class="btn btn-secondary mb-3">
+            <i class="fas fa-arrow-left"></i> Volver
+        </a>
+        <h1 class="mb-4">
+            <i class="fas fa-search"></i> Buscar tu Vehículo
+        </h1>
+    </div>
+</div>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-body">
+                <p class="text-muted mb-4">
+                    Ingresa la placa de tu vehículo para buscar tu registro y proceder al pago.
+                </p>
+
+                <div class="form-group">
+                    <label for="placaInput" class="form-label">Número de Placa</label>
+                    <div class="input-group">
+                        <input type="text" id="placaInput" class="form-control form-control-lg"
+                            placeholder="Ej: ABC-1234" maxlength="10" autocomplete="off" />
+                        <button class="btn btn-primary btn-lg" type="button" onclick="searchVehicle()">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                    </div>
+                    <small class="text-muted d-block mt-2">
+                        Formato: XXX-1234 o similar
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Resultado de búsqueda -->
+<div id="searchResult" class="row justify-content-center" style="display: none;">
+    <div class="col-md-8">
+        <div id="resultContent"></div>
+    </div>
+</div>
+
+<script>
+    // Permitir buscar con Enter
+    document.getElementById("placaInput").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            searchVehicle();
+        }
+    });
+
+    // Convertir a mayúsculas mientras se escribe
+    document.getElementById("placaInput").addEventListener("input", function () {
+        this.value = this.value.toUpperCase();
+    });
+
+    function searchVehicle() {
+        const placa = document.getElementById("placaInput").value.trim();
+
+        if (!placa) {
+            alert("Por favor ingresa una placa");
+            return;
+        }
+
+        // Mostrar cargando
+        const resultDiv = document.getElementById("searchResult");
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML =
+            '<div class="text-center"><div class="spinner-border" role="status"><span class="sr-only">Cargando...</span></div></div>';
+
+        // Llamar al API
+        fetch(`/api/vehicles/search/${encodeURIComponent(placa)}`)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    showVehicleDetails(data.vehicle, data.tariff);
+                } else {
+                    showNotFound();
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                resultDiv.innerHTML =
+                    '<div class="alert alert-danger">Error al buscar el vehículo</div>';
+            });
+    }
+
+    function showVehicleDetails(vehicle, tariff) {
+        const resultDiv = document.getElementById("searchResult");
+
+        // Formatear la hora de entrada
+        const horaEntrada = new Date(vehicle.hora_entrada).toLocaleString("es-CO");
+
+        let estadoColor = "info";
+        let estadoTexto = vehicle.estado;
+
+        if (vehicle.estado === "dentro") {
+            estadoColor = "success";
+            estadoTexto = "Dentro del parqueadero";
+        } else if (vehicle.estado === "pagado") {
+            estadoColor = "warning";
+            estadoTexto = "Pagado - Listo para salir";
+        } else if (vehicle.estado === "salido") {
+            estadoColor = "secondary";
+            estadoTexto = "Vehículo Salido";
+        }
+
+        let html = `
+            <div class="card shadow mb-3 border-${estadoColor}">
+                <div class="card-header bg-${estadoColor} text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-car"></i> ${vehicle.placa}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6 class="text-muted">Hora de Entrada</h6>
+                            <p class="h6">${horaEntrada}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted">Estado</h6>
+                            <p class="h6">
+                                <span class="badge bg-${estadoColor}">
+                                    ${estadoTexto}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6 class="text-muted">Tiempo Transcurrido</h6>
+                            <p class="h6" id="timeElapsed">Calculando...</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted">Monto a Pagar</h6>
+                            <p class="h2 text-success fw-bold">$${(tariff && tariff.amount) ? tariff.amount.toLocaleString() : 0}</p>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div id="actionButtons">
+        `;
+
+        // Botones según el estado
+        if (vehicle.estado === "dentro") {
+            html += `
+                        <a href="/pago?id=${vehicle.id}" class="btn btn-lg btn-success btn-block w-100">
+                            <i class="fas fa-credit-card"></i> Ir a Pagar
+                        </a>
+            `;
+        } else if (vehicle.estado === "pagado") {
+            html += `
+                        <button class="btn btn-lg btn-info w-100" disabled>
+                            <i class="fas fa-check-circle"></i> Pago Realizado
+                        </button>
+                        <p class="text-center text-muted mt-3">
+                            Tu vehículo puede salir del parqueadero
+                        </p>
+            `;
+        } else if (vehicle.estado === "salido") {
+            html += `
+                        <button class="btn btn-lg btn-secondary w-100" disabled>
+                            <i class="fas fa-door-open"></i> Vehículo Salido
+                        </button>
+                        <p class="text-center text-muted mt-3">
+                            Este vehículo ya ha salido del parqueadero
+                        </p>
+            `;
+        }
+
+        html += `
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="location.reload()" class="btn btn-outline-primary w-100">
+                <i class="fas fa-refresh"></i> Buscar Otro Vehículo
+            </button>
+        `;
+
+        resultDiv.innerHTML = html;
+        calculateTimeElapsed(vehicle.hora_entrada);
+    }
+
+    function showNotFound() {
+        const resultDiv = document.getElementById("searchResult");
+        resultDiv.innerHTML = `
+            <div class="alert alert-warning shadow" role="alert">
+                <h4 class="alert-heading">
+                    <i class="fas fa-exclamation-circle"></i> Vehículo no encontrado
+                </h4>
+                <p>No se encontró un vehículo con la placa especificada en el sistema.</p>
+                <hr />
+                <p class="mb-0">
+                    Verifica que hayas escrito correctamente la placa e intenta de nuevo.
+                </p>
+                <button onclick="location.reload()" class="btn btn-warning mt-3">
+                    <i class="fas fa-refresh"></i> Intentar de Nuevo
+                </button>
+            </div>
+        `;
+    }
+
+    function calculateTimeElapsed(horaEntrada) {
+        const startTime = new Date(horaEntrada);
+        const updateTime = () => {
+            const now = new Date();
+            const diff = now - startTime;
+
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+
+            document.getElementById("timeElapsed").textContent =
+                `${hours}h ${minutes}m ${seconds}s`;
+        };
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    }
+</script>
+{% endblock %}
