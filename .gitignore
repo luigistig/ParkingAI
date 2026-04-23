@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Coverage reports
+.coverage
+coverage.xml
+
+# Test output
+test_output.txt
+test_results.txt
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE files
+*.swp
+*.swo
+.idea/
+.vscode/
