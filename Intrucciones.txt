@@ -15,3 +15,5 @@ python init_db.py
 
 # 6. Ejecutar
 python run.py
+
+hola

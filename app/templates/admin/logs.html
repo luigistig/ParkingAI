@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Logs del Sistema</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            margin:0;
+            padding:20px;
+        }
+
+        h1{
+            color:#333;
+        }
+
+        table{
+            width:100%;
+            border-collapse: collapse;
+            background:white;
+        }
+
+        th, td{
+            padding:12px;
+            border:1px solid #ddd;
+            text-align:left;
+        }
+
+        th{
+            background:#007bff;
+            color:white;
+        }
+
+        tr:nth-child(even){
+            background:#f9f9f9;
+        }
+
+        tr:hover{
+            background:#f1f1f1;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>📋 Logs del Sistema</h1>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Acción</th>
+                <th>Detalles</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for log in logs %}
+
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.created_at }}</td>
+                <td>{{ log.usuario }}</td>
+                <td>{{ log.accion }}</td>
+                <td>{{ log.detalles }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>

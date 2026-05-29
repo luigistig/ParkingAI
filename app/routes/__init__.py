@@ -10,7 +10,7 @@ payment_bp = Blueprint("payments", __name__, url_prefix="/api/payments")
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 camera_bp = Blueprint("camera", __name__, url_prefix="/api/camera")
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/admin")
-
+audit_bp = Blueprint("audit", __name__, url_prefix="/admin/logs")
 # Importar rutas
 from . import vehicles, payments, admin, camera, auth
 
@@ -78,3 +78,18 @@ auth_bp.add_url_rule(
     "/check-session", "check_session", auth.check_session, methods=["GET"]
 )
 auth_bp.add_url_rule("/logout", "logout", auth.logout, methods=["GET"])
+from app.models import AuditLog
+from flask import render_template
+
+
+@audit_bp.route("/")
+def audit_logs():
+
+    logs = AuditLog.query.order_by(
+        AuditLog.fecha.desc()
+    ).all()
+
+    return render_template(
+        "admin/logs.html",
+        logs=logs
+    )

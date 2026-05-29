@@ -489,3 +489,51 @@ class SystemLog(BaseModel):
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
         }
+   
+
+class AuditLog(db.Model):
+
+    __tablename__ = "audit_logs"
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+
+    fecha = db.Column(
+        db.DateTime,
+        default=datetime.utcnow
+    )
+
+    usuario = db.Column(
+        db.String(100),
+        nullable=True
+    )
+
+    accion = db.Column(
+        db.String(255),
+        nullable=False
+    )
+
+    modulo = db.Column(
+        db.String(100),
+        nullable=False
+    )
+
+    nivel = db.Column(
+        db.String(50),
+        nullable=False
+    )
+
+    ip = db.Column(
+        db.String(100),
+        nullable=True
+    )
+
+    descripcion = db.Column(
+        db.Text,
+        nullable=True
+    )
+
+    def __repr__(self):
+        return f"<AuditLog {self.accion}>"
