@@ -103,8 +103,10 @@ def create_payment():
             db.session.add(payment)
             db.session.commit()
 
-            # Calcular tarifa para el recibo
-            tariff_info = vehicle.calcular_tarifa()
+            # Calcular tarifa y fecha de salida para el recibo
+            salida = datetime.now()
+            calculator = TariffCalculator()
+            tariff_info = calculator.calculate_tariff(vehicle.hora_entrada, salida)
 
             return (
                 jsonify(
@@ -116,10 +118,13 @@ def create_payment():
                         "receipt": {
                             "placa": vehicle.placa,
                             "entrada": vehicle.hora_entrada.isoformat(),
-                            "duracion": vehicle.tiempo_transcurrido_horas,
+                            "salida": salida.isoformat(),
+                            "duracion": calculator.format_duration(
+                                tariff_info["total_minutes"]
+                            ),
                             "monto": monto,
                             "metodo": metodo,
-                            "timestamp": datetime.now().isoformat(),
+                            "timestamp": salida.isoformat(),
                         },
                     }
                 ),

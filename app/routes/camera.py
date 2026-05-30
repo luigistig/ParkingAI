@@ -1,4 +1,3 @@
-
 from app.services.audit_service import AuditService
 from flask import (
     request,
@@ -29,7 +28,6 @@ import io
 
 from datetime import datetime
 
-
 # ============================================================================
 # VARIABLES GLOBALES
 # ============================================================================
@@ -45,12 +43,9 @@ AI_DETECTION_THROTTLE_SECONDS = 5
 # AUDITORÍA
 # ============================================================================
 
+
 def registrar_auditoria(
-    accion,
-    modulo,
-    nivel="INFO",
-    descripcion="",
-    usuario="Sistema"
+    accion, modulo, nivel="INFO", descripcion="", usuario="Sistema"
 ):
     """
     Registrar eventos de auditoría
@@ -63,7 +58,7 @@ def registrar_auditoria(
             modulo=modulo,
             nivel=nivel,
             descripcion=descripcion,
-            usuario=usuario
+            usuario=usuario,
         )
 
     except Exception as e:
@@ -75,11 +70,8 @@ def registrar_auditoria(
 # LOG DE PLACAS
 # ============================================================================
 
-def log_plate_detection(
-    plate_number,
-    action="detectada",
-    extra_info=""
-):
+
+def log_plate_detection(plate_number, action="detectada", extra_info=""):
     """
     Log de detección de placas
     """
@@ -106,6 +98,7 @@ def log_plate_detection(
 # STREAM NORMAL
 # ============================================================================
 
+
 def camera_stream():
     """
     Stream de cámara normal
@@ -125,7 +118,7 @@ def camera_stream():
                         accion="ERROR_CAMARA",
                         modulo="CAMERA_STREAM",
                         nivel="ERROR",
-                        descripcion="No se pudo abrir cámara"
+                        descripcion="No se pudo abrir cámara",
                     )
 
                     return
@@ -148,9 +141,7 @@ def camera_stream():
 
                     yield (
                         b"--frame\r\n"
-                        b"Content-Type: image/jpeg\r\n\r\n"
-                        + frame
-                        + b"\r\n"
+                        b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n"
                     )
 
                 except Exception as e:
@@ -161,8 +152,7 @@ def camera_stream():
                     time.sleep(0.1)
 
         return Response(
-            generate(),
-            mimetype="multipart/x-mixed-replace; boundary=frame"
+            generate(), mimetype="multipart/x-mixed-replace; boundary=frame"
         )
 
     except Exception as e:
@@ -171,18 +161,16 @@ def camera_stream():
             accion="ERROR_STREAM",
             modulo="CAMERA_STREAM",
             nivel="ERROR",
-            descripcion=str(e)
+            descripcion=str(e),
         )
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 # ============================================================================
 # STREAM IA
 # ============================================================================
+
 
 def camera_stream_ai():
     """
@@ -207,7 +195,7 @@ def camera_stream_ai():
                         accion="ERROR_CAMARA_AI",
                         modulo="CAMERA_STREAM_AI",
                         nivel="ERROR",
-                        descripcion="No se pudo abrir cámara IA"
+                        descripcion="No se pudo abrir cámara IA",
                     )
 
                     return
@@ -237,10 +225,7 @@ def camera_stream_ai():
 
                         vehicles = detector.detect_vehicles(frame)
 
-                        annotated = detector.annotate_image(
-                            frame,
-                            vehicles
-                        )
+                        annotated = detector.annotate_image(frame, vehicles)
 
                         _last_ai_detection = current_time
 
@@ -252,10 +237,7 @@ def camera_stream_ai():
 
                         annotated = frame
 
-                    ret, buffer = cv2.imencode(
-                        ".jpg",
-                        annotated
-                    )
+                    ret, buffer = cv2.imencode(".jpg", annotated)
 
                     if ret:
 
@@ -272,15 +254,14 @@ def camera_stream_ai():
                         accion="ERROR_FRAME_AI",
                         modulo="CAMERA_STREAM_AI",
                         nivel="ERROR",
-                        descripcion=str(e)
+                        descripcion=str(e),
                     )
 
                     error_count += 1
                     time.sleep(0.1)
 
         return Response(
-            generate(),
-            mimetype="multipart/x-mixed-replace; boundary=frame"
+            generate(), mimetype="multipart/x-mixed-replace; boundary=frame"
         )
 
     except Exception as e:
@@ -289,18 +270,16 @@ def camera_stream_ai():
             accion="ERROR_STREAM_AI",
             modulo="CAMERA_STREAM_AI",
             nivel="ERROR",
-            descripcion=str(e)
+            descripcion=str(e),
         )
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 # ============================================================================
 # DETECCIÓN AUTOMÁTICA
 # ============================================================================
+
 
 def detect_vehicle_auto():
     """
@@ -312,7 +291,7 @@ def detect_vehicle_auto():
         registrar_auditoria(
             accion="INICIO_DETECCION",
             modulo="IA",
-            descripcion="Inicio detección automática"
+            descripcion="Inicio detección automática",
         )
 
         camera = get_camera_service(use_mock=False)
@@ -321,10 +300,10 @@ def detect_vehicle_auto():
 
             if not camera.open_camera():
 
-                return jsonify({
-                    "success": False,
-                    "error": "No se pudo abrir cámara"
-                }), 500
+                return (
+                    jsonify({"success": False, "error": "No se pudo abrir cámara"}),
+                    500,
+                )
 
         vehicle_detector = VehicleDetector()
         plate_detector = PlateDetector()
@@ -334,10 +313,10 @@ def detect_vehicle_auto():
 
         if not ret:
 
-            return jsonify({
-                "success": False,
-                "error": "No se pudo capturar frame"
-            }), 500
+            return (
+                jsonify({"success": False, "error": "No se pudo capturar frame"}),
+                500,
+            )
 
         plates = plate_detector.detect_plates(frame)
 
@@ -346,21 +325,13 @@ def detect_vehicle_auto():
 
         if plates:
 
-            plate = max(
-                plates,
-                key=lambda p: p["conf"]
-            )
+            plate = max(plates, key=lambda p: p["conf"])
 
-            plate_img = plate_detector.crop_plate(
-                frame,
-                plate
-            )
+            plate_img = plate_detector.crop_plate(frame, plate)
 
             if plate_img is not None:
 
-                plate_number = ocr.extract_plate_number(
-                    plate_img
-                )
+                plate_number = ocr.extract_plate_number(plate_img)
 
                 plate_conf = plate["conf"]
 
@@ -370,31 +341,18 @@ def detect_vehicle_auto():
                 accion="PLACA_NO_DETECTADA",
                 modulo="OCR",
                 nivel="WARNING",
-                descripcion="No se detectó placa"
+                descripcion="No se detectó placa",
             )
 
-            return jsonify({
-                "success": False,
-                "error": "No se detectó placa"
-            }), 400
+            return jsonify({"success": False, "error": "No se detectó placa"}), 400
 
-        log_plate_detection(
-            plate_number,
-            "detectada",
-            f"Confianza: {plate_conf:.2f}"
-        )
+        log_plate_detection(plate_number, "detectada", f"Confianza: {plate_conf:.2f}")
 
-        existing = Vehicle.query.filter_by(
-            placa=plate_number,
-            estado="dentro"
-        ).first()
+        existing = Vehicle.query.filter_by(placa=plate_number, estado="dentro").first()
 
         if existing:
 
-            return jsonify({
-                "success": False,
-                "error": "Vehículo ya registrado"
-            }), 400
+            return jsonify({"success": False, "error": "Vehículo ya registrado"}), 400
 
         vehicle_type = "carro"
         color = "Desconocido"
@@ -403,18 +361,18 @@ def detect_vehicle_auto():
 
         filename = f"vehicle_{plate_number}_{timestamp}.jpg"
 
-        filepath = os.path.join(
-            current_app.config["UPLOAD_FOLDER"],
-            filename
-        )
+        filepath = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
 
         cv2.imwrite(filepath, frame)
+
+        # Guardar ruta relativa accesible desde el navegador (CORRECCIÓN PARA IMAGEN EN PAGO)
+        ruta_imagen_relativa = f"/static/uploads/{filename}"
 
         vehicle_record = Vehicle(
             placa=plate_number,
             marca=vehicle_type,
             color=color,
-            ruta_imagen=filepath
+            ruta_imagen=ruta_imagen_relativa,
         )
 
         db.session.add(vehicle_record)
@@ -423,46 +381,42 @@ def detect_vehicle_auto():
         registrar_auditoria(
             accion="VEHICULO_REGISTRADO",
             modulo="PARKING",
-            descripcion=f"Vehículo registrado: {plate_number}"
+            descripcion=f"Vehículo registrado: {plate_number}",
         )
 
         SystemLog.create_log(
-            accion="ENTRADA_REGISTRADA",
-            detalles=f"Vehículo {plate_number} registrado"
+            accion="ENTRADA_REGISTRADA", detalles=f"Vehículo {plate_number} registrado"
         )
 
-        return jsonify({
-            "success": True,
-            "message": "Vehículo registrado",
-            "vehicle": {
-                "placa": plate_number,
-                "tipo": vehicle_type,
-                "color": color,
-                "imagen": filepath,
-                "confianza_placa": plate_conf
+        return jsonify(
+            {
+                "success": True,
+                "message": "Vehículo registrado",
+                "vehicle": {
+                    "placa": plate_number,
+                    "tipo": vehicle_type,
+                    "color": color,
+                    "imagen": ruta_imagen_relativa,
+                    "confianza_placa": plate_conf,
+                },
             }
-        })
+        )
 
     except Exception as e:
 
         db.session.rollback()
 
         registrar_auditoria(
-            accion="ERROR_DETECCION",
-            modulo="IA",
-            nivel="ERROR",
-            descripcion=str(e)
+            accion="ERROR_DETECCION", modulo="IA", nivel="ERROR", descripcion=str(e)
         )
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 # ============================================================================
 # CAPTURAR IMAGEN
 # ============================================================================
+
 
 def capture_image():
     """
@@ -472,48 +426,48 @@ def capture_image():
     try:
 
         registrar_auditoria(
-            accion="CAPTURA_IMAGEN",
-            modulo="CAMARA",
-            descripcion="Captura manual"
+            accion="CAPTURA_IMAGEN", modulo="CAMARA", descripcion="Captura manual"
         )
 
         camera = get_camera_service(use_mock=False)
 
-        success, filepath = camera.capture_and_save(
-            current_app.config["UPLOAD_FOLDER"]
-        )
+        success, filepath = camera.capture_and_save(current_app.config["UPLOAD_FOLDER"])
 
         if not success:
 
-            return jsonify({
-                "success": False,
-                "error": "No se pudo capturar imagen"
-            }), 500
+            return (
+                jsonify({"success": False, "error": "No se pudo capturar imagen"}),
+                500,
+            )
 
-        return jsonify({
-            "success": True,
-            "filepath": filepath,
-            "message": "Imagen capturada"
-        }), 201
+        # Convertir ruta absoluta a relativa para navegador (CORRECCIÓN)
+        filename = os.path.basename(filepath)
+        ruta_relativa = f"/static/uploads/{filename}"
+
+        return (
+            jsonify(
+                {
+                    "success": True,
+                    "filepath": ruta_relativa,
+                    "message": "Imagen capturada",
+                }
+            ),
+            201,
+        )
 
     except Exception as e:
 
         registrar_auditoria(
-            accion="ERROR_CAPTURA",
-            modulo="CAMARA",
-            nivel="ERROR",
-            descripcion=str(e)
+            accion="ERROR_CAPTURA", modulo="CAMARA", nivel="ERROR", descripcion=str(e)
         )
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 # ============================================================================
 # DETECTAR PLACA
 # ============================================================================
+
 
 def detect_plate():
     """
@@ -526,21 +480,21 @@ def detect_plate():
 
         if "filepath" not in data:
 
-            return jsonify({
-                "success": False,
-                "error": "Ruta requerida"
-            }), 400
+            return jsonify({"success": False, "error": "Ruta requerida"}), 400
 
         filepath = data["filepath"]
+
+        # Convertir ruta relativa a absoluta si es necesario (CORRECCIÓN)
+        if filepath.startswith("/static/"):
+            filepath = os.path.join(
+                current_app.config["UPLOAD_FOLDER"], os.path.basename(filepath)
+            )
 
         image = cv2.imread(filepath)
 
         if image is None:
 
-            return jsonify({
-                "success": False,
-                "error": "No se pudo leer imagen"
-            }), 400
+            return jsonify({"success": False, "error": "No se pudo leer imagen"}), 400
 
         detector = PlateDetector()
         ocr = PlateOCR()
@@ -551,51 +505,35 @@ def detect_plate():
 
         for plate in plates:
 
-            plate_img = detector.crop_plate(
-                image,
-                plate
-            )
+            plate_img = detector.crop_plate(image, plate)
 
             if plate_img is not None:
 
-                text = ocr.extract_plate_number(
-                    plate_img
-                )
+                text = ocr.extract_plate_number(plate_img)
 
-                results.append({
-                    "plate": text,
-                    "confidence": plate.get("conf", 0)
-                })
+                results.append({"plate": text, "confidence": plate.get("conf", 0)})
 
         registrar_auditoria(
             accion="PLACA_ANALIZADA",
             modulo="OCR",
-            descripcion=f"Cantidad placas: {len(results)}"
+            descripcion=f"Cantidad placas: {len(results)}",
         )
 
-        return jsonify({
-            "success": True,
-            "results": results
-        })
+        return jsonify({"success": True, "results": results})
 
     except Exception as e:
 
         registrar_auditoria(
-            accion="ERROR_OCR",
-            modulo="OCR",
-            nivel="ERROR",
-            descripcion=str(e)
+            accion="ERROR_OCR", modulo="OCR", nivel="ERROR", descripcion=str(e)
         )
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 # ============================================================================
 # SUBIR IMAGEN IA
 # ============================================================================
+
 
 def process_image_ai():
     """
@@ -606,51 +544,35 @@ def process_image_ai():
 
         if "file" not in request.files:
 
-            return jsonify({
-                "success": False,
-                "error": "Archivo requerido"
-            }), 400
+            return jsonify({"success": False, "error": "Archivo requerido"}), 400
 
         file = request.files["file"]
 
         if file.filename == "":
 
-            return jsonify({
-                "success": False,
-                "error": "Archivo vacío"
-            }), 400
+            return jsonify({"success": False, "error": "Archivo vacío"}), 400
 
         filename = secure_filename(file.filename)
 
-        filepath = os.path.join(
-            current_app.config["UPLOAD_FOLDER"],
-            filename
-        )
+        filepath = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
 
         file.save(filepath)
 
         registrar_auditoria(
-            accion="IMAGEN_SUBIDA",
-            modulo="UPLOAD",
-            descripcion=f"Archivo: {filename}"
+            accion="IMAGEN_SUBIDA", modulo="UPLOAD", descripcion=f"Archivo: {filename}"
         )
 
-        return jsonify({
-            "success": True,
-            "filepath": filepath,
-            "message": "Imagen subida"
-        })
+        # Convertir ruta absoluta a relativa para navegador (CORRECCIÓN)
+        ruta_relativa = f"/static/uploads/{filename}"
+
+        return jsonify(
+            {"success": True, "filepath": ruta_relativa, "message": "Imagen subida"}
+        )
 
     except Exception as e:
 
         registrar_auditoria(
-            accion="ERROR_UPLOAD",
-            modulo="UPLOAD",
-            nivel="ERROR",
-            descripcion=str(e)
+            accion="ERROR_UPLOAD", modulo="UPLOAD", nivel="ERROR", descripcion=str(e)
         )
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500

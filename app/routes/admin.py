@@ -23,32 +23,19 @@ def get_statistics():
     try:
 
         # Vehículos activos
-        active_vehicles = Vehicle.query.filter_by(
-            estado="dentro"
-        ).count()
+        active_vehicles = Vehicle.query.filter_by(estado="dentro").count()
 
         # Fechas
         today = datetime.now().date()
 
-        today_start = datetime.combine(
-            today,
-            datetime.min.time()
-        )
+        today_start = datetime.combine(today, datetime.min.time())
 
-        today_end = datetime.combine(
-            today,
-            datetime.max.time()
-        )
+        today_end = datetime.combine(today, datetime.max.time())
 
         # Ingresos hoy
         today_income = (
             db.session.query(func.sum(PaymentRecord.monto))
-            .filter(
-                PaymentRecord.fecha_pago.between(
-                    today_start,
-                    today_end
-                )
-            )
+            .filter(PaymentRecord.fecha_pago.between(today_start, today_end))
             .scalar()
             or 0
         )
@@ -59,10 +46,8 @@ def get_statistics():
         month_income = (
             db.session.query(func.sum(PaymentRecord.monto))
             .filter(
-                PaymentRecord.fecha_pago >= datetime.combine(
-                    month_start,
-                    datetime.min.time()
-                )
+                PaymentRecord.fecha_pago
+                >= datetime.combine(month_start, datetime.min.time())
             )
             .scalar()
             or 0
@@ -70,58 +55,40 @@ def get_statistics():
 
         # Vehículos procesados hoy
         today_vehicles = Vehicle.query.filter(
-            Vehicle.hora_entrada.between(
-                today_start,
-                today_end
-            )
+            Vehicle.hora_entrada.between(today_start, today_end)
         ).count()
 
         # Vehículos pagados hoy
         today_paid = Vehicle.query.filter(
-            Vehicle.hora_salida.between(
-                today_start,
-                today_end
-            ),
-            Vehicle.estado.in_([
-                "pagado",
-                "salido"
-            ]),
+            Vehicle.hora_salida.between(today_start, today_end),
+            Vehicle.estado.in_(["pagado", "salido"]),
         ).count()
 
         # Tiempo promedio
         avg_duration = (
-            db.session.query(
-                func.avg(Vehicle.tiempo_total)
-            )
-            .filter(
-                Vehicle.hora_salida.between(
-                    today_start,
-                    today_end
-                )
-            )
+            db.session.query(func.avg(Vehicle.tiempo_total))
+            .filter(Vehicle.hora_salida.between(today_start, today_end))
             .scalar()
             or 0
         )
 
-        return jsonify({
-            "success": True,
-            "statistics": {
-                "active_vehicles": active_vehicles,
-                "today_income": today_income,
-                "month_income": month_income,
-                "today_vehicles": today_vehicles,
-                "today_paid": today_paid,
-                "avg_duration_minutes": int(avg_duration)
-                if avg_duration else 0,
-            },
-        })
+        return jsonify(
+            {
+                "success": True,
+                "statistics": {
+                    "active_vehicles": active_vehicles,
+                    "today_income": today_income,
+                    "month_income": month_income,
+                    "today_vehicles": today_vehicles,
+                    "today_paid": today_paid,
+                    "avg_duration_minutes": int(avg_duration) if avg_duration else 0,
+                },
+            }
+        )
 
     except Exception as e:
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 @require_admin
@@ -130,21 +97,13 @@ def get_logs():
 
     try:
 
-        logs = SystemLog.query.order_by(
-            SystemLog.created_at.desc()
-        ).all()
+        logs = SystemLog.query.order_by(SystemLog.created_at.desc()).all()
 
-        return render_template(
-            "admin/logs.html",
-            logs=logs
-        )
+        return render_template("admin/logs.html", logs=logs)
 
     except Exception as e:
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 @require_admin
@@ -158,46 +117,29 @@ def manage_vehicles():
         # =========================
         if request.method == "GET":
 
-            estado = request.args.get(
-                "estado",
-                "dentro"
-            )
+            estado = request.args.get("estado", "dentro")
 
-            page = request.args.get(
-                "page",
-                1,
-                type=int
-            )
+            page = request.args.get("page", 1, type=int)
 
-            per_page = request.args.get(
-                "per_page",
-                20,
-                type=int
-            )
+            per_page = request.args.get("per_page", 20, type=int)
 
-            query = Vehicle.query.filter_by(
-                estado=estado
-            ).order_by(
+            query = Vehicle.query.filter_by(estado=estado).order_by(
                 Vehicle.hora_entrada.desc()
             )
 
-            paginated = query.paginate(
-                page=page,
-                per_page=per_page
+            paginated = query.paginate(page=page, per_page=per_page)
+
+            vehicles_data = [v.to_dict() for v in paginated.items]
+
+            return jsonify(
+                {
+                    "success": True,
+                    "total": paginated.total,
+                    "pages": paginated.pages,
+                    "current_page": page,
+                    "vehicles": vehicles_data,
+                }
             )
-
-            vehicles_data = [
-                v.to_dict()
-                for v in paginated.items
-            ]
-
-            return jsonify({
-                "success": True,
-                "total": paginated.total,
-                "pages": paginated.pages,
-                "current_page": page,
-                "vehicles": vehicles_data,
-            })
 
         # =========================
         # POST
@@ -208,10 +150,7 @@ def manage_vehicles():
 
             if "placa" not in data:
 
-                return jsonify({
-                    "success": False,
-                    "error": "Placa requerida"
-                }), 400
+                return jsonify({"success": False, "error": "Placa requerida"}), 400
 
             vehicle = Vehicle(
                 placa=data["placa"].upper(),
@@ -220,6 +159,10 @@ def manage_vehicles():
                 estado="dentro",
             )
 
+            # Agregar ruta de imagen si se proporciona (CORRECCIÓN PARA IMAGEN EN PAGO)
+            if data.get("ruta_imagen"):
+                vehicle.ruta_imagen = data.get("ruta_imagen")
+
             db.session.add(vehicle)
             db.session.commit()
 
@@ -227,19 +170,13 @@ def manage_vehicles():
             SystemLog.create_log(
                 accion="ENTRADA_REGISTRADA",
                 detalles=f"Vehículo {vehicle.placa} registrado manualmente",
-                usuario="admin"
+                usuario="admin",
             )
 
-            return jsonify({
-                "success": True,
-                "vehicle": vehicle.to_dict()
-            }), 201
+            return jsonify({"success": True, "vehicle": vehicle.to_dict()}), 201
 
     except Exception as e:
 
         db.session.rollback()
 
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500

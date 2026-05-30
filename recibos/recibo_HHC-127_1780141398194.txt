@@ -1,0 +1,13 @@
+
+RECIBO DE PAGO - PARQUEADERO IA
+================================
+Placa: HHC-127
+Entrada: 29/5/2026, 5:29:06 p. m.
+Salida: Invalid Date
+Duración: [object Object]
+Monto Pagado: $28000
+Método: efectivo
+Fecha: 30/5/2026, 6:43:14 a. m.
+================================
+¡Gracias por usar nuestro servicio!
+    

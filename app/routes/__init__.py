@@ -70,6 +70,9 @@ camera_bp.add_url_rule(
 camera_bp.add_url_rule(
     "/process_ai", "process_image_ai", camera.process_image_ai, methods=["POST"]
 )
+camera_bp.add_url_rule(
+    "/upload", "upload", camera.process_image_ai, methods=["POST"]
+)  # CORRECCIÓN: Alias para upload
 
 # Registrar rutas de autenticación
 auth_bp.add_url_rule("/login", "admin_login", auth.admin_login, methods=["GET"])
@@ -85,11 +88,6 @@ from flask import render_template
 @audit_bp.route("/")
 def audit_logs():
 
-    logs = AuditLog.query.order_by(
-        AuditLog.fecha.desc()
-    ).all()
+    logs = AuditLog.query.order_by(AuditLog.fecha.desc()).all()
 
-    return render_template(
-        "admin/logs.html",
-        logs=logs
-    )
+    return render_template("admin/logs.html", logs=logs)

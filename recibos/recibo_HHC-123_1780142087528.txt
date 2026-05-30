@@ -1,0 +1,13 @@
+
+RECIBO DE PAGO - PARQUEADERO IA
+================================
+Placa: HHC-123
+Entrada: 29/5/2026, 5:09:19 p. m.
+Salida: 30/5/2026, 6:54:46 a. m.
+Duración: 13 horas y 45 minutos
+Monto Pagado: $28000
+Método: efectivo
+Fecha: 30/5/2026, 6:54:46 a. m.
+================================
+¡Gracias por usar nuestro servicio!
+    

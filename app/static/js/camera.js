@@ -157,20 +157,11 @@ async function processImageWithAI(event) {
     }
 }
 
-// Función para detectar vehículo automáticamente desde la cámara
+// Función para detectar vehículo automáticamente desde la cámara (CORRECCIÓN: Automático y silencioso)
 async function detectVehicleAuto() {
     const status = document.getElementById('detectionStatus');
     const resultDiv = document.getElementById('autoDetectionResult');
     const resultContent = document.getElementById('autoResultContent');
-    const btn = document.getElementById('autoDetectBtn');
-
-    // Cambiar estado del botón
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detectando...';
-
-    // Cambiar mensaje de estado
-    status.className = 'alert alert-info';
-    status.innerHTML = '<i class="fas fa-eye"></i> Detectando vehículo...';
 
     try {
         const response = await fetch('/api/camera/detect_vehicle_auto', {
@@ -180,39 +171,75 @@ async function detectVehicleAuto() {
         const data = await response.json();
 
         if (data.success) {
+            const placaKey = data.vehicle.placa;
+
+            // CORRECCIÓN: Verificar si el vehículo ya fue registrado (evitar duplicados)
+            if (!detectedVehicles.has(placaKey)) {
+                detectedVehicles.add(placaKey);
+                vehicleCount++;
+
+                // Actualizar contador
+                document.getElementById('vehicleCount').textContent = vehicleCount;
+
+                // Mostrar resultado brevemente
+                resultContent.innerHTML = `
+                    <div class="alert alert-success m-0">
+                        <i class="fas fa-check-circle"></i> <strong>¡Vehículo Detectado!</strong><br>
+                        <small>Placa: ${data.vehicle.placa} | Tipo: ${data.vehicle.tipo} | Color: ${data.vehicle.color}</small>
+                    </div>
+                `;
+                resultDiv.style.display = 'block';
+
+                // Sonido de notificación (opcional)
+                playDetectionSound();
+
+                // Ocultar resultado después de 3 segundos
+                setTimeout(() => {
+                    resultDiv.style.display = 'none';
+                }, 3000);
+
+                console.log('✅ Vehículo detectado:', data.vehicle.placa);
+            }
+
+            // Mantener estado "Monitoreando"
             status.className = 'alert alert-success';
-            status.innerHTML = '<i class="fas fa-check-circle"></i> ¡Vehículo detectado y registrado!';
-
-            // Mostrar resultado
-            resultContent.innerHTML = `
-                <h6><i class="fas fa-car"></i> Vehículo Registrado</h6>
-                <p><strong>Placa:</strong> ${data.vehicle.placa}</p>
-                <p><strong>Tipo:</strong> ${data.vehicle.tipo}</p>
-                <p><strong>Color:</strong> ${data.vehicle.color}</p>
-                <p><strong>Imagen guardada:</strong> ${data.vehicle.imagen.split('/').pop()}</p>
-                ${data.vehicle.confianza_placa ? `<p><strong>Confianza placa:</strong> ${(data.vehicle.confianza_placa * 100).toFixed(1)}%</p>` : ''}
-            `;
-            resultDiv.style.display = 'block';
-
-            // Ocultar resultado después de 10 segundos
-            setTimeout(() => {
-                resultDiv.style.display = 'none';
-            }, 10000);
+            status.innerHTML = '<i class="fas fa-video"></i> <strong>Monitoreando vehículos...</strong> Detectando automáticamente';
 
         } else {
-            status.className = 'alert alert-danger';
-            status.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${data.error}`;
-            resultDiv.style.display = 'none';
+            // Mantener monitoreando aunque no haya detección
+            status.className = 'alert alert-success';
+            status.innerHTML = '<i class="fas fa-video"></i> <strong>Monitoreando vehículos...</strong> Detectando automáticamente';
+            console.log('ℹ️ Sin vehículos detectados en este frame');
         }
 
     } catch (error) {
-        console.error('Error:', error);
-        status.className = 'alert alert-danger';
-        status.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error de conexión';
-        resultDiv.style.display = 'none';
-    } finally {
-        // Restaurar botón
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-magic"></i> Detectar y Registrar Vehículo';
+        console.error('Error en detección automática:', error);
+        // Mantener estado de monitoreo incluso con errores
+        status.className = 'alert alert-warning';
+        status.innerHTML = '<i class="fas fa-video"></i> <strong>Monitoreando vehículos...</strong> (Esperando conexión)';
+    }
+}
+
+// CORRECCIÓN: Función para reproducir sonido de detección
+function playDetectionSound() {
+    try {
+        // Crear un sonido beep simple usando Web Audio API
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        oscillator.frequency.value = 800;
+        oscillator.type = 'sine';
+
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.5);
+    } catch (e) {
+        console.log('No se pudo reproducir sonido de notificación');
     }
 }

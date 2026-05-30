@@ -18,12 +18,6 @@
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="cameraTab" data-bs-toggle="tab" data-bs-target="#cameraContent"
-                    type="button">
-                    <i class="fas fa-camera"></i> Capturar Foto
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="manualTab" data-bs-toggle="tab" data-bs-target="#manualContent"
                     type="button">
                     <i class="fas fa-keyboard"></i> Entrada Manual
@@ -50,14 +44,22 @@
                         </div>
 
                         <!-- Estado de detección -->
-                        <div id="detectionStatus" class="alert alert-info">
-                            <i class="fas fa-eye"></i> Buscando vehículos...
+                        <div id="detectionStatus" class="alert alert-success">
+                            <i class="fas fa-video"></i> <strong>Monitoreando vehículos...</strong> Detectando
+                            automáticamente
                         </div>
 
-                        <!-- Botón de detección automática -->
-                        <div class="d-grid">
-                            <button class="btn btn-success btn-lg" id="autoDetectBtn" onclick="detectVehicleAuto()">
-                                <i class="fas fa-magic"></i> Detectar y Registrar Vehículo
+                        <!-- Contador de detecciones -->
+                        <div class="alert alert-info" id="detectionCounter">
+                            <i class="fas fa-check-circle"></i> Vehículos registrados: <strong
+                                id="vehicleCount">0</strong>
+                        </div>
+
+                        <!-- Botón de detección manual (secundario) -->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success btn-sm" id="autoDetectBtn"
+                                onclick="detectVehicleAutoManual()" style="opacity: 0.6;">
+                                <i class="fas fa-search"></i> Forzar Detección Manual (Opcional)
                             </button>
                         </div>
 
@@ -75,79 +77,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Contenido del tab de cámara -->
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Capturar Foto del Vehículo</h5>
-                </div>
-                <div class="card-body">
-                    <!-- Vista previa de cámara -->
-                    <div id="cameraPreview" class="mb-3" style="display: none;">
-                        <video id="videoElement" width="100%" height="400"
-                            style="border: 2px solid #ddd; border-radius: 8px;" autoplay playsinline>
-                        </video>
-                    </div>
-
-                    <!-- Placeholder si no hay cámara -->
-                    <div id="noCameraMessage" class="alert alert-info">
-                        <i class="fas fa-info-circle"></i>
-                        Para usar la cámara en directo, acceda desde un dispositivo con cámara
-                        o suba una imagen del vehículo.
-                    </div>
-
-                    <!-- Carga de archivo con IA -->
-                    <div class="mb-3">
-                        <label for="aiImageInput" class="form-label">
-                            <i class="fas fa-robot"></i> Cargar Imagen para Procesamiento con IA
-                        </label>
-                        <input type="file" class="form-control" id="aiImageInput" accept="image/*"
-                            onchange="processImageWithAI(event)">
-                        <small class="text-muted">
-                            La IA detectará automáticamente vehículo, placa y color
-                        </small>
-                    </div>
-
-                    <!-- Preview de imagen procesada con IA -->
-                    <div id="aiImagePreview" class="mb-3" style="display: none;">
-                        <img id="aiPreviewImg" src="" alt="Preview con IA" class="img-fluid rounded">
-                        <div id="aiProcessingStatus" class="mt-2 alert alert-info">
-                            <i class="fas fa-cog fa-spin"></i> Procesando con IA...
-                        </div>
-                    </div>
-
-                    <!-- Botones -->
-                    <div class="d-grid gap-2 d-sm-flex">
-                        <button class="btn btn-primary flex-grow-1" id="captureBtn" onclick="captureImage()">
-                            <i class="fas fa-camera"></i> Capturar Foto
-                        </button>
-                        <button class="btn btn-secondary flex-grow-1" id="detectBtn" onclick="detectPlate()"
-                            style="display: none;">
-                            <i class="fas fa-barcode"></i> Detectar Placa
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Resultados de detección -->
-            <div id="detectionResults" style="display: none;" class="mt-4">
-                <div class="card">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Placas Detectadas</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="platesContainer"></div>
-
-                        <button class="btn btn-success btn-lg w-100 mt-3" onclick="proceedWithPlate()">
-                            <i class="fas fa-check"></i> Confirmar Entrada
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Contenido del tab manual -->
-        <div class="tab-pane fade" id="manualContent">
+        <div class="tab-pane fade" id="manualContent" role="tabpanel">
             <div class="card">
                 <div class="card-header bg-info text-white">
                     <h5 class="mb-0">Entrada Manual</h5>
@@ -174,6 +107,21 @@
                                 <i class="fas fa-palette"></i> Color
                             </label>
                             <input type="text" class="form-control" id="manualColor" placeholder="Negro, Blanco, etc.">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="manualImage" class="form-label">
+                                <i class="fas fa-image"></i> Cargar Imagen (Opcional)
+                            </label>
+                            <input type="file" class="form-control" id="manualImage" accept="image/*"
+                                onchange="uploadManualImage(event)">
+                            <small class="text-muted">La imagen será subida y asociada al vehículo</small>
+                            <div id="manualImagePreview" style="display: none;" class="mt-2">
+                                <img id="manualPreviewImg" src="" alt="Preview" class="img-fluid rounded"
+                                    style="max-height: 150px;">
+                                <p class="text-success mt-2"><i class="fas fa-check-circle"></i> Imagen lista para
+                                    registrar</p>
+                            </div>
                         </div>
 
                         <button type="submit" class="btn btn-info btn-lg w-100">
@@ -206,92 +154,79 @@
     let currentImagePath = null;
     let detectedPlates = [];
     let selectedPlateIndex = 0;
+    let manualImagePath = null;
+    let autoDetectionInterval = null;  // CORRECCIÓN: Para controlar el intervalo de detección
+    let detectedVehicles = new Set();  // CORRECCIÓN: Para evitar duplicados
+    let vehicleCount = 0;  // CORRECCIÓN: Contador de vehículos
 
-    function handleImageUpload(event) {
+    // CORRECCIÓN: Iniciar detección automática cuando se carga la página
+    window.addEventListener('DOMContentLoaded', function () {
+        startAutoDetection();
+
+        // Detener detección cuando se cambia de tab
+        document.getElementById('manualTab').addEventListener('click', function () {
+            stopAutoDetection();
+        });
+
+        document.getElementById('aiTab').addEventListener('click', function () {
+            startAutoDetection();
+        });
+    });
+
+    // CORRECCIÓN: Iniciar detección automática continua
+    function startAutoDetection() {
+        console.log('Iniciando detección automática...');
+        if (autoDetectionInterval) {
+            clearInterval(autoDetectionInterval);
+        }
+        // Detección cada 4 segundos
+        autoDetectionInterval = setInterval(() => {
+            detectVehicleAuto();
+        }, 4000);
+    }
+
+    // CORRECCIÓN: Detener detección automática
+    function stopAutoDetection() {
+        console.log('Deteniendo detección automática...');
+        if (autoDetectionInterval) {
+            clearInterval(autoDetectionInterval);
+            autoDetectionInterval = null;
+        }
+    }
+
+    // CORRECCIÓN: Función para detección manual (botón opcional)
+    function detectVehicleAutoManual() {
+        console.log('Detección manual forzada');
+        detectVehicleAuto();
+    }
+
+    function uploadManualImage(event) {
         const file = event.target.files[0];
         if (!file) return;
 
         // Mostrar preview
         const reader = new FileReader();
         reader.onload = function (e) {
-            document.getElementById('previewImg').src = e.target.result;
-            document.getElementById('imagePreview').style.display = 'block';
-            document.getElementById('captureBtn').style.display = 'none';
-            document.getElementById('detectBtn').style.display = 'block';
-
-            // Guardar archivo en servidor
-            const formData = new FormData();
-            formData.append('file', file);
-
-            fetch('/api/camera/capture', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        currentImagePath = data.filepath;
-                    } else {
-                        showError('Error al cargar imagen');
-                    }
-                });
+            document.getElementById('manualPreviewImg').src = e.target.result;
+            document.getElementById('manualImagePreview').style.display = 'block';
         };
         reader.readAsDataURL(file);
-    }
 
-    function captureImage() {
-        const btn = document.getElementById('captureBtn');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Capturando...';
+        // Subir archivo al servidor
+        const formData = new FormData();
+        formData.append('file', file);
 
-        fetch('/api/camera/capture', {
-            method: 'POST'
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    currentImagePath = data.filepath;
-                    document.getElementById('previewImg').src = data.filepath;
-                    document.getElementById('imagePreview').style.display = 'block';
-                    document.getElementById('captureBtn').style.display = 'none';
-                    document.getElementById('detectBtn').style.display = 'block';
-                } else {
-                    showError('Error al capturar imagen: ' + data.error);
-                }
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-camera"></i> Capturar Foto';
-            });
-    }
-
-    function detectPlate() {
-        if (!currentImagePath) {
-            showError('Primero capture o cargue una imagen');
-            return;
-        }
-
-        const btn = document.getElementById('detectBtn');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detectando...';
-
-        fetch('/api/camera/detect', {
+        fetch('/api/camera/upload', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                filepath: currentImagePath
-            })
+            body: formData
         })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    detectedPlates = data.results;
-                    displayDetectionResults(data.results);
+                    manualImagePath = data.filepath;  // CORRECCIÓN: Guardar ruta relativa
                 } else {
-                    showError(data.error || 'Error en detección');
+                    showError('Error al cargar imagen');
                 }
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-barcode"></i> Detectar Placa';
             });
     }
 
@@ -367,7 +302,6 @@
                 if (data.success) {
                     document.getElementById('successMessage').style.display = 'block';
                     document.getElementById('errorMessage').style.display = 'none';
-                    document.getElementById('cameraContent').style.display = 'none';
                 } else {
                     showError(data.error || 'Error al registrar entrada');
                 }
@@ -379,7 +313,7 @@
 
         const formData = {
             placa: document.getElementById('manualPlaca').value,
-            ruta_imagen: null,
+            ruta_imagen: manualImagePath,  // CORRECCIÓN: Incluir ruta de imagen si existe
             marca: document.getElementById('manualMarca').value,
             color: document.getElementById('manualColor').value
         };
@@ -395,6 +329,8 @@
             .then(data => {
                 if (data.success) {
                     document.getElementById('manualEntryForm').reset();
+                    document.getElementById('manualImagePreview').style.display = 'none';
+                    manualImagePath = null;  // CORRECCIÓN: Limpiar ruta después de registro
                     document.getElementById('successMessage').style.display = 'block';
                     document.getElementById('errorMessage').style.display = 'none';
                 } else {
