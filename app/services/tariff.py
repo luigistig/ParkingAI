@@ -60,22 +60,23 @@ class TariffCalculator:
             entrada, salida
         )
 
-        # Calcular horas a cobrar
-        if remaining_minutes > 0:
-            # Si hay minutos adicionales, cobrar una hora completa
-            if rounding_method == "ceil":
-                hours_to_charge = hours + 1
-            else:
-                hours_to_charge = hours + (1 if remaining_minutes > 30 else 0)
-        else:
-            hours_to_charge = hours if hours > 0 else 1  # Mínimo 1 hora
-
         # Calcular valor
-        amount = hours_to_charge * self.tariff_per_hour
+        if total_minutes <= 60:
+            # Hasta 1 hora se cobra por bloques de 15 minutos usando cargo mínimo.
+            # El primer bloque es el valor mínimo; luego cada 15 minutos completos adicionales
+            # aumentan el cargo mínimo una vez.
+            if total_minutes <= 15:
+                blocks_to_charge = 1
+            else:
+                extra_minutes = total_minutes - 15
+                blocks_to_charge = 1 + (extra_minutes // 15)
 
-        # Aplicar cargo mínimo
-        if amount < self.min_charge:
-            amount = self.min_charge
+            amount = blocks_to_charge * self.min_charge
+            hours_to_charge = blocks_to_charge
+        else:
+            # Después de 1 hora, se cobra por horas completas.
+            hours_to_charge = math.ceil(total_minutes / 60)
+            amount = hours_to_charge * self.tariff_per_hour
 
         return {
             "total_minutes": total_minutes,

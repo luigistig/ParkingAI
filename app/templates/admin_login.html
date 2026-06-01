@@ -303,6 +303,9 @@
                     window.location.href = "/admin";
                 } else {
                     // Mostrar error
+                    const loginBody = document.querySelector(".login-body");
+                    loginBody.querySelectorAll(".alert.alert-danger").forEach(el => el.remove());
+
                     const alertDiv = document.createElement("div");
                     alertDiv.className = "alert alert-danger alert-dismissible fade show";
                     alertDiv.role = "alert";
@@ -310,7 +313,7 @@
                         <i class="fas fa-exclamation-circle"></i> ${data.error || "Error al iniciar sesión"}
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     `;
-                    document.querySelector(".login-body").insertBefore(
+                    loginBody.insertBefore(
                         alertDiv,
                         document.getElementById("loginForm")
                     );
@@ -320,6 +323,9 @@
                 }
             } catch (error) {
                 console.error("Error:", error);
+                const loginBody = document.querySelector(".login-body");
+                loginBody.querySelectorAll(".alert.alert-danger").forEach(el => el.remove());
+
                 const alertDiv = document.createElement("div");
                 alertDiv.className = "alert alert-danger alert-dismissible fade show";
                 alertDiv.role = "alert";
@@ -327,7 +333,7 @@
                     <i class="fas fa-exclamation-circle"></i> Error de conexión
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 `;
-                document.querySelector(".login-body").insertBefore(
+                loginBody.insertBefore(
                     alertDiv,
                     document.getElementById("loginForm")
                 );

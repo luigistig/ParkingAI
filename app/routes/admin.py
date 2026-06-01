@@ -118,14 +118,44 @@ def manage_vehicles():
         if request.method == "GET":
 
             estado = request.args.get("estado", "dentro")
+            date_from = request.args.get("date_from")
+            date_to = request.args.get("date_to")
 
             page = request.args.get("page", 1, type=int)
-
             per_page = request.args.get("per_page", 20, type=int)
 
-            query = Vehicle.query.filter_by(estado=estado).order_by(
-                Vehicle.hora_entrada.desc()
-            )
+            # Si se filtra por 'salido' es más lógico ordenar por hora_salida
+            if estado == "salido":
+                query = Vehicle.query.order_by(Vehicle.hora_salida.desc())
+            else:
+                query = Vehicle.query.order_by(Vehicle.hora_entrada.desc())
+
+            if estado:
+                query = query.filter_by(estado=estado)
+
+            placa = request.args.get("placa")
+            if placa:
+                query = query.filter(Vehicle.placa.ilike(f"%{placa}%"))
+
+            if date_from:
+                try:
+                    date_from_obj = datetime.strptime(date_from, "%Y-%m-%d").date()
+                    query = query.filter(
+                        Vehicle.hora_entrada
+                        >= datetime.combine(date_from_obj, datetime.min.time())
+                    )
+                except ValueError:
+                    pass
+
+            if date_to:
+                try:
+                    date_to_obj = datetime.strptime(date_to, "%Y-%m-%d").date()
+                    query = query.filter(
+                        Vehicle.hora_entrada
+                        <= datetime.combine(date_to_obj, datetime.max.time())
+                    )
+                except ValueError:
+                    pass
 
             paginated = query.paginate(page=page, per_page=per_page)
 

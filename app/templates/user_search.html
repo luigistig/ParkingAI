@@ -111,6 +111,17 @@
             estadoTexto = "Vehículo Salido";
         }
 
+        // Imagen del vehículo (si existe)
+        const imgHtml = vehicle.ruta_imagen ? `
+            <div class="text-center mb-3">
+                <img id="vehicleImage" src="${vehicle.ruta_imagen}" class="img-fluid rounded" style="max-height:200px; object-fit:contain;" alt="Imagen del vehículo" />
+            </div>
+        ` : `
+            <div class="text-center mb-3">
+                <div class="border rounded p-4 text-muted" style="max-height:200px; display:flex; align-items:center; justify-content:center;">Sin imagen disponible</div>
+            </div>
+        `;
+
         let html = `
             <div class="card shadow mb-3 border-${estadoColor}">
                 <div class="card-header bg-${estadoColor} text-white">
@@ -119,6 +130,7 @@
                     </h5>
                 </div>
                 <div class="card-body">
+                    ${imgHtml}
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <h6 class="text-muted">Hora de Entrada</h6>
@@ -212,6 +224,13 @@
 
     function calculateTimeElapsed(horaEntrada) {
         const startTime = new Date(horaEntrada);
+
+        // Limpiar cualquier intervalo previo para evitar actualizaciones cruzadas
+        if (window._timeElapsedInterval) {
+            clearInterval(window._timeElapsedInterval);
+            window._timeElapsedInterval = null;
+        }
+
         const updateTime = () => {
             const now = new Date();
             const diff = now - startTime;
@@ -220,12 +239,21 @@
             const minutes = Math.floor((diff % 3600000) / 60000);
             const seconds = Math.floor((diff % 60000) / 1000);
 
-            document.getElementById("timeElapsed").textContent =
-                `${hours}h ${minutes}m ${seconds}s`;
+            const el = document.getElementById("timeElapsed");
+            if (!el) {
+                // Si el elemento ya no existe, cancelar el intervalo
+                if (window._timeElapsedInterval) {
+                    clearInterval(window._timeElapsedInterval);
+                    window._timeElapsedInterval = null;
+                }
+                return;
+            }
+
+            el.textContent = `${hours}h ${minutes}m ${seconds}s`;
         };
 
         updateTime();
-        setInterval(updateTime, 1000);
+        window._timeElapsedInterval = setInterval(updateTime, 1000);
     }
 </script>
 {% endblock %}

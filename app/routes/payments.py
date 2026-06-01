@@ -91,6 +91,14 @@ def create_payment():
             monto = float(data["monto"])
             metodo = data["metodo_pago"]
 
+            # Calcular tarifa y fecha de salida para el recibo ANTES de cambiar el estado
+            salida = datetime.now()
+            calculator = TariffCalculator()
+            tarifa_entrada = vehicle.hora_entrada
+            entrada_iso = tarifa_entrada.isoformat()
+            tariff_info = calculator.calculate_tariff(tarifa_entrada, salida)
+
+            # Registrar pago en el vehículo (valida estado)
             vehicle.registrar_pago(monto, metodo)
 
             # Crear registro de pago en BD
@@ -103,10 +111,11 @@ def create_payment():
             db.session.add(payment)
             db.session.commit()
 
-            # Calcular tarifa y fecha de salida para el recibo
-            salida = datetime.now()
-            calculator = TariffCalculator()
-            tariff_info = calculator.calculate_tariff(vehicle.hora_entrada, salida)
+            # Después de pagar, reiniciar el contador de entrada para el período de salida
+            # La hora de entrada se reinicia ahora (periodo de 15 minutos comienza aquí)
+            vehicle.hora_entrada = datetime.now()
+            db.session.add(vehicle)
+            db.session.commit()
 
             return (
                 jsonify(
@@ -117,7 +126,7 @@ def create_payment():
                         "vehicle": vehicle.to_dict(),
                         "receipt": {
                             "placa": vehicle.placa,
-                            "entrada": vehicle.hora_entrada.isoformat(),
+                            "entrada": entrada_iso,
                             "salida": salida.isoformat(),
                             "duracion": calculator.format_duration(
                                 tariff_info["total_minutes"]

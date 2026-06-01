@@ -413,6 +413,59 @@ def detect_vehicle_auto():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+def detect_plate_exit():
+    """Detectar placa para la salida sin registrar entrada. Devuelve la placa detectada si existe."""
+    try:
+        camera = get_camera_service(use_mock=False)
+
+        if not camera.camera or not camera.camera.isOpened():
+            if not camera.open_camera():
+                return (
+                    jsonify({"success": False, "error": "No se pudo abrir cámara"}),
+                    500,
+                )
+
+        plate_detector = PlateDetector()
+        ocr = PlateOCR()
+
+        ret, frame = camera.camera.read()
+        if not ret:
+            return (
+                jsonify({"success": False, "error": "No se pudo capturar frame"}),
+                500,
+            )
+
+        plates = plate_detector.detect_plates(frame)
+        if not plates:
+            return jsonify({"success": False, "error": "No se detectó placa"}), 400
+
+        plate = max(plates, key=lambda p: p["conf"])
+        plate_img = plate_detector.crop_plate(frame, plate)
+        if plate_img is None:
+            return (
+                jsonify(
+                    {"success": False, "error": "No se pudo extraer imagen de placa"}
+                ),
+                400,
+            )
+
+        plate_number = ocr.extract_plate_number(plate_img)
+        if not plate_number:
+            return (
+                jsonify({"success": False, "error": "OCR no pudo leer la placa"}),
+                400,
+            )
+
+        log_plate_detection(
+            plate_number, "detectada_salida", f"Confianza: {plate['conf']:.2f}"
+        )
+
+        return jsonify({"success": True, "placa": plate_number})
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 # ============================================================================
 # CAPTURAR IMAGEN
 # ============================================================================

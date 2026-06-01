@@ -31,6 +31,12 @@ vehicle_bp.add_url_rule(
     vehicles.vehicle_checkout,
     methods=["POST"],
 )
+vehicle_bp.add_url_rule(
+    "/checkout_by_plate",
+    "checkout_by_plate",
+    vehicles.checkout_by_plate,
+    methods=["POST"],
+)
 
 # Registrar rutas de pagos
 payment_bp.add_url_rule(
@@ -65,6 +71,12 @@ camera_bp.add_url_rule(
     "/detect_vehicle_auto",
     "detect_vehicle_auto",
     camera.detect_vehicle_auto,
+    methods=["POST"],
+)
+camera_bp.add_url_rule(
+    "/detect_plate_exit",
+    "detect_plate_exit",
+    camera.detect_plate_exit,
     methods=["POST"],
 )
 camera_bp.add_url_rule(

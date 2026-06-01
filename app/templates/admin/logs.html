@@ -1,57 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Logs del Sistema</title>
+{% block title %}Logs del Sistema - Parqueadero{% endblock %}
 
-    <style>
+{% block extra_css %}
+<style>
+    .logs-container {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        body{
-            font-family: Arial, sans-serif;
-            background:#f4f4f4;
-            margin:0;
-            padding:20px;
-        }
+    .logs-container h1 {
+        color: #333;
+        margin-bottom: 25px;
+    }
 
-        h1{
-            color:#333;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-        table{
-            width:100%;
-            border-collapse: collapse;
-            background:white;
-        }
+    th,
+    td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
 
-        th, td{
-            padding:12px;
-            border:1px solid #ddd;
-            text-align:left;
-        }
+    th {
+        background: #007bff;
+        color: white;
+        font-weight: 600;
+    }
 
-        th{
-            background:#007bff;
-            color:white;
-        }
+    tbody tr:nth-child(even) {
+        background: #f9f9f9;
+    }
 
-        tr:nth-child(even){
-            background:#f9f9f9;
-        }
+    tbody tr:hover {
+        background: #f1f1f1;
+    }
+</style>
+{% endblock %}
 
-        tr:hover{
-            background:#f1f1f1;
-        }
+{% block content %}
+<div class="logs-container">
+    <h1>
+        <i class="fas fa-file-alt"></i> Logs del Sistema
+    </h1>
 
-    </style>
-</head>
-
-<body>
-
-    <h1>📋 Logs del Sistema</h1>
-
-    <table>
-
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
@@ -63,9 +62,7 @@
         </thead>
 
         <tbody>
-
             {% for log in logs %}
-
             <tr>
                 <td>{{ log.id }}</td>
                 <td>{{ log.created_at }}</td>
@@ -73,13 +70,8 @@
                 <td>{{ log.accion }}</td>
                 <td>{{ log.detalles }}</td>
             </tr>
-
             {% endfor %}
-
         </tbody>
-
     </table>
-
-</body>
-
-</html>
+</div>
+{% endblock %}

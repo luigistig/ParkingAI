@@ -59,16 +59,24 @@ def payment_page():
     return render_template("payment.html")
 
 
-@app.route("/historial")
-def history_page():
-    """Página de historial"""
+@app.route("/salida")
+def exit_page():
+    """Página de salida"""
     from flask import render_template
 
-    return render_template("history.html")
+    return render_template("exit.html")
 
 
 @app.route("/admin/login")
 def admin_login():
+    """Página de login para administrador"""
+    from flask import session
+
+    # Si ya está logeado, ir al dashboard
+    if session.get("is_admin"):
+        return redirect("/admin")
+
+    return render_template("admin_login.html")
     """Página de login para administrador"""
     from flask import session
 

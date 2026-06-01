@@ -41,11 +41,14 @@
                     <li class="nav-item" id="navPago" style="display: none;">
                         <a class="nav-link" href="/pago">Pago</a>
                     </li>
-                    <li class="nav-item" id="navHistorial" style="display: none;">
-                        <a class="nav-link" href="/historial">Historial</a>
+                    <li class="nav-item" id="navSalida" style="display: none;">
+                        <a class="nav-link" href="/salida">Salida</a>
                     </li>
                     <li class="nav-item" id="navAdmin" style="display: none;">
                         <a class="nav-link" href="/admin">Administración</a>
+                    </li>
+                    <li class="nav-item" id="navLogs" style="display: none;">
+                        <a class="nav-link" href="/admin/logs">Logs</a>
                     </li>
 
                     <!-- Usuario admin logeado -->
@@ -108,8 +111,9 @@
                     // Usuario admin logeado
                     document.getElementById("navRegistro").style.display = "block";
                     document.getElementById("navPago").style.display = "block";
-                    document.getElementById("navHistorial").style.display = "block";
+                    document.getElementById("navSalida").style.display = "block";
                     document.getElementById("navAdmin").style.display = "block";
+                    document.getElementById("navLogs").style.display = "block";
                     document.getElementById("adminDropdown").style.display = "block";
                     document.getElementById("adminLoginBtn").style.display = "none";
 
@@ -120,8 +124,9 @@
                     // Usuario normal
                     document.getElementById("navRegistro").style.display = "none";
                     document.getElementById("navPago").style.display = "none";
-                    document.getElementById("navHistorial").style.display = "none";
+                    document.getElementById("navSalida").style.display = "none";
                     document.getElementById("navAdmin").style.display = "none";
+                    document.getElementById("navLogs").style.display = "none";
                     document.getElementById("adminDropdown").style.display = "none";
                     document.getElementById("adminLoginBtn").style.display = "block";
                 }

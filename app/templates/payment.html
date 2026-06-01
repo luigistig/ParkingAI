@@ -368,6 +368,9 @@
         const errorMsg = document.getElementById('errorMessage');
         document.getElementById('errorText').textContent = message;
         errorMsg.style.display = 'block';
+        document.getElementById('resultSection').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'none';
+        currentVehicleId = null;
     }
 
     function resetSearch() {

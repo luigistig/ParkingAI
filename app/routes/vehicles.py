@@ -4,9 +4,10 @@ Rutas para gestión de vehículos
 
 from flask import request, jsonify, render_template, current_app
 from app import db
-from app.models import Vehicle, SystemLog
+from app.models import Vehicle, SystemLog, PaymentRecord
 from app.services.tariff import TariffCalculator
 from datetime import datetime
+from datetime import timedelta
 import os
 from sqlalchemy.exc import IntegrityError
 
@@ -33,6 +34,10 @@ def get_vehicle(vehicle_id):
         if not vehicle:
             return jsonify({"success": False, "error": "Vehículo no encontrado"}), 404
 
+        # No exponer vehículos que ya salieron
+        if vehicle.estado == "salido":
+            return jsonify({"success": False, "error": "Vehículo no encontrado"}), 404
+
         return jsonify({"success": True, **vehicle.obtener_info_completa()})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
@@ -44,6 +49,46 @@ def search_vehicle(placa):
         vehicle = Vehicle.buscar_por_placa(placa)
         if not vehicle:
             return jsonify({"success": False, "error": "Vehículo no encontrado"}), 404
+
+        # No exponer vehículos que ya salieron
+        if vehicle.estado == "salido":
+            return jsonify({"success": False, "error": "Vehículo no encontrado"}), 404
+
+        # Si el vehículo está en estado 'pagado', verificar periodo de gracia de 15 minutos
+        if vehicle.estado == "pagado":
+            # Obtener último pago completado
+            last_payment = (
+                PaymentRecord.query.filter_by(
+                    vehicle_id=vehicle.id, estado="completado"
+                )
+                .order_by(PaymentRecord.fecha_pago.desc())
+                .first()
+            )
+
+            if last_payment:
+                ahora = datetime.now()
+                delta = ahora - last_payment.fecha_pago
+                # Si está dentro de 15 minutos, no debe aparecer en la búsqueda de pago
+                if delta <= timedelta(minutes=15):
+                    minutos_restantes = 15 - int(delta.total_seconds() / 60)
+                    return (
+                        jsonify(
+                            {
+                                "success": False,
+                                "error": f"Vehículo pagado. Tiene {minutos_restantes} minuto(s) para salir",
+                            }
+                        ),
+                        400,
+                    )
+                else:
+                    # Periodo de gracia expiró: devolver vehículo a 'dentro' y reiniciar hora_entrada
+                    vehicle.estado = "dentro"
+                    # Reiniciar conteo desde el fin del periodo de gracia
+                    vehicle.hora_entrada = last_payment.fecha_pago + timedelta(
+                        minutes=15
+                    )
+                    db.session.add(vehicle)
+                    db.session.commit()
 
         return jsonify({"success": True, **vehicle.obtener_info_completa()})
     except Exception as e:
@@ -170,19 +215,20 @@ def vehicle_checkout(vehicle_id):
         if not vehicle:
             return jsonify({"success": False, "error": "Vehículo no encontrado"}), 404
 
-        if vehicle.estado != "dentro":
+        # Solo vehículos en estado 'pagado' pueden registrar salida
+        if vehicle.estado != "pagado":
             return (
                 jsonify(
                     {
                         "success": False,
-                        "error": "Vehículo no está dentro del parqueadero",
+                        "error": "Vehículo no está en estado pagado (no puede salir)",
                     }
                 ),
                 400,
             )
 
         try:
-            # Usar método de instancia para registrar salida
+            # Usar método de instancia para registrar salida (valida estado pagado)
             vehicle.registrar_salida()
 
             return jsonify(
@@ -193,6 +239,49 @@ def vehicle_checkout(vehicle_id):
                 }
             )
 
+        except ValueError as ve:
+            return jsonify({"success": False, "error": str(ve)}), 400
+
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+def checkout_by_plate():
+    """Registrar salida por placa (usada por la cámara de salida). Espera JSON { placa: 'XXX-123' }"""
+    try:
+        data = request.get_json()
+        if not data or "placa" not in data:
+            return jsonify({"success": False, "error": "Placa requerida"}), 400
+
+        placa = data["placa"].upper()
+        vehicle = Vehicle.buscar_por_placa(placa)
+        if not vehicle:
+            return jsonify({"success": False, "error": "Vehículo no encontrado"}), 404
+
+        if vehicle.estado != "pagado":
+            return (
+                jsonify(
+                    {
+                        "success": False,
+                        "error": "Vehículo no está pagado y no puede salir",
+                    }
+                ),
+                400,
+            )
+
+        try:
+            vehicle.registrar_salida()
+            return (
+                jsonify(
+                    {
+                        "success": True,
+                        "message": "Salida registrada exitosamente",
+                        "vehicle": vehicle.to_dict(),
+                    }
+                ),
+                200,
+            )
         except ValueError as ve:
             return jsonify({"success": False, "error": str(ve)}), 400
 

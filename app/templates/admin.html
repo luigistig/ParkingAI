@@ -24,11 +24,6 @@
         </button>
     </li>
     <li class="nav-item">
-        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#logsTab">
-            <i class="fas fa-log"></i> Registros
-        </button>
-    </li>
-    <li class="nav-item">
         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#settingsTab">
             <i class="fas fa-sliders-h"></i> Configuración
         </button>
@@ -97,21 +92,30 @@
                     <div class="col">
                         <h5 class="mb-0">Gestionar Vehículos</h5>
                     </div>
-                    <div class="col-auto">
-                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addVehicleModal">
-                            <i class="fas fa-plus"></i> Agregar Vehículo
-                        </button>
-                    </div>
                 </div>
             </div>
             <div class="card-body">
-                <div class="mb-3">
-                    <select id="vehicleStatusFilter" class="form-select" onchange="loadAdminVehicles()">
-                        <option value="">Todos los estados</option>
-                        <option value="dentro">Dentro</option>
-                        <option value="pagado">Pagado</option>
-                        <option value="salido">Salido</option>
-                    </select>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-3">
+                        <select id="vehicleStatusFilter" class="form-select" onchange="loadAdminVehicles()">
+                            <option value="">Todos los estados</option>
+                            <option value="dentro">Dentro</option>
+                            <option value="pagado">Pagado</option>
+                            <option value="salido">Salido</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" id="vehicleDateFrom" class="form-control" onchange="loadAdminVehicles()"
+                            placeholder="Desde">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" id="vehicleDateTo" class="form-control" onchange="loadAdminVehicles()"
+                            placeholder="Hasta">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="vehiclePlateFilter" class="form-control" onchange="loadAdminVehicles()"
+                            placeholder="Buscar placa">
+                    </div>
                 </div>
 
                 <div class="table-responsive">
@@ -121,38 +125,9 @@
                                 <th>Placa</th>
                                 <th>Entrada</th>
                                 <th>Estado</th>
-                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="adminVehiclesBody">
-                            <tr>
-                                <td colspan="4" class="text-center">Cargando...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Registros del Sistema -->
-    <div class="tab-pane fade" id="logsTab">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">Registros del Sistema</h5>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-sm" id="logsTable">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Acción</th>
-                                <th>Detalles</th>
-                                <th>Usuario</th>
-                            </tr>
-                        </thead>
-                        <tbody id="logsBody">
                             <tr>
                                 <td colspan="4" class="text-center">Cargando...</td>
                             </tr>
@@ -276,8 +251,20 @@
 
     function loadAdminVehicles() {
         const status = document.getElementById('vehicleStatusFilter').value;
+        const dateFrom = document.getElementById('vehicleDateFrom').value;
+        const dateTo = document.getElementById('vehicleDateTo').value;
+        const placa = document.getElementById('vehiclePlateFilter').value.trim();
+
+        const params = new URLSearchParams();
+        if (status) params.append('estado', status);
+        if (dateFrom) params.append('date_from', dateFrom);
+        if (dateTo) params.append('date_to', dateTo);
+        if (placa) params.append('placa', placa);
+
         let url = '/admin/vehicles';
-        if (status) url += `?estado=${status}`;
+        if ([...params].length > 0) {
+            url += `?${params.toString()}`;
+        }
 
         fetch(url)
             .then(response => response.json())
@@ -293,11 +280,6 @@
                             <td><strong>${v.placa}</strong></td>
                             <td>${entrada.toLocaleString('es-CO')}</td>
                             <td><span class="badge bg-${getStatusColor(v.estado)}">${v.estado}</span></td>
-                            <td>
-                                <button class="btn btn-sm btn-warning" onclick="editVehicle(${v.id})">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                            </td>
                         </tr>
                     `;
                         tbody.innerHTML += row;

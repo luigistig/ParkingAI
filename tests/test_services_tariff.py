@@ -19,7 +19,9 @@ class TariffCalculatorTest(unittest.TestCase):
 
     def test_calculate_tariff_uses_ceiling(self):
         entrada = datetime.now() - timedelta(hours=1, minutes=10)
-        result = self.calculator.calculate_tariff(entrada, datetime.now(), rounding_method="ceil")
+        result = self.calculator.calculate_tariff(
+            entrada, datetime.now(), rounding_method="ceil"
+        )
 
         self.assertEqual(result["hours_to_charge"], 2)
         self.assertEqual(result["amount"], 4000)
@@ -28,10 +30,34 @@ class TariffCalculatorTest(unittest.TestCase):
         calculator = TariffCalculator(tariff_per_hour=100, min_charge=500)
         entrada = datetime.now() - timedelta(minutes=10)
 
-        result = calculator.calculate_tariff(entrada, datetime.now(), rounding_method="ceil")
+        result = calculator.calculate_tariff(
+            entrada, datetime.now(), rounding_method="ceil"
+        )
 
         self.assertEqual(result["hours_to_charge"], 1)
         self.assertEqual(result["amount"], 500)
+
+    def test_calculate_tariff_40_minutes_uses_two_minimum_blocks(self):
+        calculator = TariffCalculator(tariff_per_hour=2000, min_charge=500)
+        entrada = datetime.now() - timedelta(minutes=40)
+
+        result = calculator.calculate_tariff(
+            entrada, datetime.now(), rounding_method="ceil"
+        )
+
+        self.assertEqual(result["hours_to_charge"], 2)
+        self.assertEqual(result["amount"], 1000)
+
+    def test_calculate_tariff_45_minutes_uses_three_minimum_blocks(self):
+        calculator = TariffCalculator(tariff_per_hour=2000, min_charge=500)
+        entrada = datetime.now() - timedelta(minutes=45)
+
+        result = calculator.calculate_tariff(
+            entrada, datetime.now(), rounding_method="ceil"
+        )
+
+        self.assertEqual(result["hours_to_charge"], 3)
+        self.assertEqual(result["amount"], 1500)
 
     def test_format_duration(self):
         self.assertEqual(self.calculator.format_duration(45), "45 minutos")
