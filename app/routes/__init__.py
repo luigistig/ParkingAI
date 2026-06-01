@@ -2,7 +2,9 @@
 Inicializador de rutas
 """
 
-from flask import Blueprint
+from flask import Blueprint, render_template
+from app.models import AuditLog
+from . import vehicles, payments, admin, camera, auth
 
 # Crear blueprints
 vehicle_bp = Blueprint("vehicles", __name__, url_prefix="/api/vehicles")
@@ -11,8 +13,6 @@ admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 camera_bp = Blueprint("camera", __name__, url_prefix="/api/camera")
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/admin")
 audit_bp = Blueprint("audit", __name__, url_prefix="/admin/logs")
-# Importar rutas
-from . import vehicles, payments, admin, camera, auth
 
 # Registrar rutas de vehículos
 vehicle_bp.add_url_rule("", "list", vehicles.list_vehicles, methods=["GET"])
@@ -93,8 +93,6 @@ auth_bp.add_url_rule(
     "/check-session", "check_session", auth.check_session, methods=["GET"]
 )
 auth_bp.add_url_rule("/logout", "logout", auth.logout, methods=["GET"])
-from app.models import AuditLog
-from flask import render_template
 
 
 @audit_bp.route("/")

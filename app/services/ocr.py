@@ -4,7 +4,6 @@ Servicio de OCR para reconocimiento de caracteres en placas usando EasyOCR
 
 import easyocr
 import cv2
-import numpy as np
 import re
 
 
@@ -163,7 +162,7 @@ class PlateOCR:
         text = re.sub(r"[^A-Z0-9\-]", "", text)
 
         # Agregar guion si es necesario (XXX-123)
-        if len(text) >= 6 and not "-" in text:
+        if len(text) >= 6 and "-" not in text:
             # Detectar patrón y agregar guion
             if text[:3].isalpha() and text[3:].isdigit():
                 text = text[:3] + "-" + text[3:]

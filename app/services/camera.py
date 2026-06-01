@@ -3,6 +3,7 @@ Servicio de cámara y captura de imágenes
 """
 
 import cv2
+import numpy as np
 import os
 from datetime import datetime
 import uuid
@@ -76,7 +77,7 @@ class CameraService:
         try:
             if self.camera:
                 self.camera.release()
-        except:
+        except Exception:
             pass
         self.camera = None
         time.sleep(0.5)  # Esperar medio segundo antes de reconectar
@@ -282,6 +283,6 @@ def release_camera_service():
     if _camera_instance:
         try:
             _camera_instance.close_camera()
-        except:
+        except Exception:
             pass
         _camera_instance = None

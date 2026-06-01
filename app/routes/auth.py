@@ -3,7 +3,7 @@ Rutas para autenticación de administrador
 """
 
 from flask import request, jsonify, render_template, session, redirect, url_for
-from datetime import datetime, timedelta
+from datetime import timedelta
 import os
 
 

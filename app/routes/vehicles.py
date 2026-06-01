@@ -2,13 +2,10 @@
 Rutas para gestión de vehículos
 """
 
-from flask import request, jsonify, render_template, current_app
+from flask import request, jsonify, current_app
 from app import db
 from app.models import Vehicle, SystemLog, PaymentRecord
-from app.services.tariff import TariffCalculator
-from datetime import datetime
-from datetime import timedelta
-import os
+from datetime import datetime, timedelta
 from sqlalchemy.exc import IntegrityError
 
 
@@ -197,7 +194,7 @@ def vehicle_checkin():
                 400,
             )
 
-    except Exception as e:
+    except Exception:
         db.session.rollback()
         current_app.logger.exception("Error inesperado en vehicle_checkin")
         return (
@@ -221,7 +218,7 @@ def vehicle_checkout(vehicle_id):
                 jsonify(
                     {
                         "success": False,
-                        "error": "Vehículo no está en estado pagado (no puede salir)",
+                        "error": f"Solo vehículos pagados pueden salir. Estado actual: {vehicle.estado}",
                     }
                 ),
                 400,
@@ -264,7 +261,7 @@ def checkout_by_plate():
                 jsonify(
                     {
                         "success": False,
-                        "error": "Vehículo no está pagado y no puede salir",
+                        "error": f"Solo vehículos pagados pueden salir. Estado actual: {vehicle.estado}",
                     }
                 ),
                 400,

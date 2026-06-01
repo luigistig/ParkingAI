@@ -42036,3 +42036,4364 @@
             STATUS: 200 OK
             DURATION: 0.0034s
             
+2026-06-01 11:05:41,713 | INFO | ParkingAI | ===== SISTEMA DE LOGGING INICIADO =====
+2026-06-01 11:05:46,759 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/admin/login
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,760 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 401 UNAUTHORIZED
+            DURATION: 0.0011s
+            
+2026-06-01 11:05:46,786 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/admin/login
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,787 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:05:46,813 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/admin/check-session
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,813 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:05:46,855 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,863 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0084s
+            
+2026-06-01 11:05:46,864 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/vehicles
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,866 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0019s
+            
+2026-06-01 11:05:46,890 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,897 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0065s
+            
+2026-06-01 11:05:46,898 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/vehicles/search/ABC-123
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,900 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0015s
+            
+2026-06-01 11:05:46,924 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,927 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0030s
+            
+2026-06-01 11:05:46,953 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,960 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0074s
+            
+2026-06-01 11:05:46,961 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkout/1
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:05:46,964 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0026s
+            
+2026-06-01 11:10:16,940 | INFO | ParkingAI | ===== SISTEMA DE LOGGING INICIADO =====
+2026-06-01 11:10:21,990 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/admin/login
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:21,991 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 401 UNAUTHORIZED
+            DURATION: 0.0010s
+            
+2026-06-01 11:10:22,015 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/admin/login
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,016 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:10:22,041 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/admin/check-session
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,042 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:10:22,080 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,090 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0100s
+            
+2026-06-01 11:10:22,091 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/vehicles
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,093 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0020s
+            
+2026-06-01 11:10:22,119 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,125 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0061s
+            
+2026-06-01 11:10:22,126 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/vehicles/search/ABC-123
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,127 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0015s
+            
+2026-06-01 11:10:22,155 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,158 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0031s
+            
+2026-06-01 11:10:22,188 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,194 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0064s
+            
+2026-06-01 11:10:22,195 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkout/1
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:10:22,199 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0033s
+            
+2026-06-01 11:10:59,057 | INFO | ParkingAI | ===== SISTEMA DE LOGGING INICIADO =====
+2026-06-01 11:11:03,927 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/admin/login
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:03,928 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 401 UNAUTHORIZED
+            DURATION: 0.0010s
+            
+2026-06-01 11:11:03,951 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/admin/login
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:03,951 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:11:03,976 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/admin/check-session
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:03,976 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:11:04,003 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:04,010 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0069s
+            
+2026-06-01 11:11:04,011 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/vehicles
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:04,013 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0018s
+            
+2026-06-01 11:11:04,036 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:04,042 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0062s
+            
+2026-06-01 11:11:04,043 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://localhost/api/vehicles/search/ABC-123
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:04,045 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0015s
+            
+2026-06-01 11:11:04,068 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:04,071 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0029s
+            
+2026-06-01 11:11:04,094 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkin
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:04,100 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0064s
+            
+2026-06-01 11:11:04,102 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://localhost/api/vehicles/checkout/1
+            IP: 127.0.0.1
+            USER_AGENT: werkzeug/2.3.6
+            
+2026-06-01 11:11:04,105 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0033s
+            
+2026-06-01 11:12:34,798 | INFO | ParkingAI | ===== SISTEMA DE LOGGING INICIADO =====
+2026-06-01 11:12:38,425 | INFO | ParkingAI | ===== SISTEMA DE LOGGING INICIADO =====
+2026-06-01 11:12:41,629 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:41,635 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0067s
+            
+2026-06-01 11:12:41,680 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:41,682 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:41,747 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0673s
+            
+2026-06-01 11:12:41,748 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0665s
+            
+2026-06-01 11:12:41,883 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:41,884 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0010s
+            
+2026-06-01 11:12:41,900 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:41,901 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:12:42,901 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/usuario
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:42,905 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0034s
+            
+2026-06-01 11:12:43,000 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:43,000 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0010s
+            
+2026-06-01 11:12:43,001 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:43,002 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:12:43,099 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:43,100 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0010s
+            
+2026-06-01 11:12:43,167 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:43,168 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:12:47,543 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/vehicles/search/HHC-125
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:47,553 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0102s
+            
+2026-06-01 11:12:47,561 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/uploads/vehicle_HHC-125_20260529_172521.jpg
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:47,562 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0007s
+            
+2026-06-01 11:12:50,125 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/vehicles/search/HHC-125
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:50,127 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0013s
+            
+2026-06-01 11:12:52,954 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago?id=16
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:52,958 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0043s
+            
+2026-06-01 11:12:53,000 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:53,001 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0010s
+            
+2026-06-01 11:12:53,003 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:53,004 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0014s
+            
+2026-06-01 11:12:53,010 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:53,011 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:12:53,039 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:53,040 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:12:53,040 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/vehicles/16
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:53,044 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0038s
+            
+2026-06-01 11:12:53,311 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/uploads/vehicle_HHC-125_20260529_172521.jpg
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:53,312 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/payments/photos?placa=HHC-125
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:12:53,313 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0015s
+            
+2026-06-01 11:12:53,316 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0035s
+            
+2026-06-01 11:13:00,969 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/payments
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:00,998 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 201 CREATED
+            DURATION: 0.0293s
+            
+2026-06-01 11:13:01,636 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:01,645 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0097s
+            
+2026-06-01 11:13:02,926 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/usuario
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:02,927 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:13:02,971 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:02,972 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0009s
+            
+2026-06-01 11:13:02,974 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:02,977 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0027s
+            
+2026-06-01 11:13:03,008 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:03,008 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0004s
+            
+2026-06-01 11:13:03,031 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:03,032 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0008s
+            
+2026-06-01 11:13:09,006 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:09,009 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0035s
+            
+2026-06-01 11:13:09,028 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:09,029 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:13:09,030 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:09,031 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:13:09,046 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:09,048 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:09,050 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:09,054 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:09,055 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0013s
+            
+2026-06-01 11:13:09,056 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0104s
+            
+2026-06-01 11:13:09,061 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0129s
+            
+2026-06-01 11:13:09,066 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0162s
+            
+2026-06-01 11:13:12,067 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles?estado=pagado
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:12,069 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0019s
+            
+2026-06-01 11:13:14,735 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:14,737 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0020s
+            
+2026-06-01 11:13:14,754 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:14,755 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:14,756 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:13:14,756 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:13:14,769 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:14,769 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0004s
+            
+2026-06-01 11:13:23,917 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/vehicles/search/ABC-123
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:23,919 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0013s
+            
+2026-06-01 11:13:25,006 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago?id=3
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:25,006 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:13:25,048 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:25,049 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0010s
+            
+2026-06-01 11:13:25,057 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:25,059 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:13:25,154 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/vehicles/3
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:25,156 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:25,157 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0028s
+            
+2026-06-01 11:13:25,157 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0013s
+            
+2026-06-01 11:13:25,515 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/payments/photos?placa=ABC-123
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:25,517 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0021s
+            
+2026-06-01 11:13:25,537 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:25,538 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0008s
+            
+2026-06-01 11:13:29,439 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:29,440 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0017s
+            
+2026-06-01 11:13:29,458 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:29,459 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:29,459 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:13:29,460 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:13:29,472 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:13:29,472 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:14:06,547 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:06,550 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0040s
+            
+2026-06-01 11:14:06,568 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:06,569 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:06,570 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0021s
+            
+2026-06-01 11:14:06,570 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:06,571 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:06,573 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0024s
+            
+2026-06-01 11:14:06,573 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:14:06,584 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:06,584 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:14:06,626 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0566s
+            
+2026-06-01 11:14:10,589 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_vehicle_auto
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:13,633 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 3.0440s
+            
+2026-06-01 11:14:14,584 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_vehicle_auto
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:16,437 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:16,440 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0031s
+            
+2026-06-01 11:14:16,461 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:16,463 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:16,464 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0032s
+            
+2026-06-01 11:14:16,465 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:16,466 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:14:16,480 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:16,480 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:14:16,539 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0757s
+            
+2026-06-01 11:14:17,483 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.8989s
+            
+2026-06-01 11:14:19,478 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:21,581 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:21,711 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.1305s
+            
+2026-06-01 11:14:22,491 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:22,595 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 3.1166s
+            
+2026-06-01 11:14:24,584 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,485 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,722 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,723 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0013s
+            
+2026-06-01 11:14:25,750 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,751 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:14:25,752 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,754 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,756 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0023s
+            
+2026-06-01 11:14:25,761 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,764 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0032s
+            
+2026-06-01 11:14:25,775 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:25,776 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0018s
+            
+2026-06-01 11:14:25,878 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.1261s
+            
+2026-06-01 11:14:28,485 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:29,785 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_vehicle_auto
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:39,842 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 17.3512s
+            
+2026-06-01 11:14:39,849 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:48,167 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 22.6823s
+            
+2026-06-01 11:14:48,177 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_vehicle_auto
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:49,515 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 21.0297s
+            
+2026-06-01 11:14:49,520 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:49,600 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 25.0166s
+            
+2026-06-01 11:14:49,978 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 500 INTERNAL SERVER ERROR
+            DURATION: 20.1930s
+            
+2026-06-01 11:14:49,988 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:52,884 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 13.0346s
+            
+2026-06-01 11:14:52,893 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:52,896 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0036s
+            
+2026-06-01 11:14:52,900 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_vehicle_auto
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:52,906 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/vehicles/checkout_by_plate
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:52,910 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:52,912 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:52,929 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0234s
+            
+2026-06-01 11:14:52,934 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:14:52,937 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0025s
+            
+2026-06-01 11:14:52,944 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:05,352 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 15.8320s
+            
+2026-06-01 11:15:05,366 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:05,371 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0047s
+            
+2026-06-01 11:15:05,384 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/vehicles/checkout_by_plate
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:05,399 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0153s
+            
+2026-06-01 11:15:05,404 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:05,407 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0035s
+            
+2026-06-01 11:15:05,416 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:06,195 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 13.2852s
+            
+2026-06-01 11:15:06,203 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/vehicles/checkout_by_plate
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:06,229 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0265s
+            
+2026-06-01 11:15:06,239 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:06,776 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 13.8755s
+            
+2026-06-01 11:15:06,897 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 13.9529s
+            
+2026-06-01 11:15:06,903 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/vehicles/checkout_by_plate
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:06,906 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 0.0035s
+            
+2026-06-01 11:15:06,908 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 13.9965s
+            
+2026-06-01 11:15:06,924 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:06,924 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:07,370 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:07,372 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:07,373 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:07,374 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:15:07,381 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:07,382 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:15:09,471 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 21.2948s
+            
+2026-06-01 11:15:09,589 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 19.6011s
+            
+2026-06-01 11:15:10,135 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:10,136 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:15:10,151 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:10,152 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:10,153 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0020s
+            
+2026-06-01 11:15:10,153 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:15:10,164 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:10,166 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:10,168 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:10,170 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:10,171 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0016s
+            
+2026-06-01 11:15:10,176 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0098s
+            
+2026-06-01 11:15:10,177 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0095s
+            
+2026-06-01 11:15:10,177 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0136s
+            
+2026-06-01 11:15:15,532 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles?estado=salido
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:15,535 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0031s
+            
+2026-06-01 11:15:17,230 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 11.8138s
+            
+2026-06-01 11:15:17,492 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 10.5678s
+            
+2026-06-01 11:15:17,517 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 10.1480s
+            
+2026-06-01 11:15:17,568 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 10.6444s
+            
+2026-06-01 11:15:17,584 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 10.2122s
+            
+2026-06-01 11:15:17,649 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 11.4102s
+            
+2026-06-01 11:15:31,122 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,123 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:15:31,139 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,140 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,141 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0014s
+            
+2026-06-01 11:15:31,142 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:15:31,147 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,147 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0003s
+            
+2026-06-01 11:15:31,814 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,814 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:15:31,830 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,831 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,832 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0017s
+            
+2026-06-01 11:15:31,833 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,834 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,835 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0022s
+            
+2026-06-01 11:15:31,837 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0027s
+            
+2026-06-01 11:15:31,845 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:31,846 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:15:31,883 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0513s
+            
+2026-06-01 11:15:34,171 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:34,171 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0011s
+            
+2026-06-01 11:15:34,190 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:34,192 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:34,192 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0022s
+            
+2026-06-01 11:15:34,193 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:34,195 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:15:34,204 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:34,206 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0015s
+            
+2026-06-01 11:15:34,257 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0654s
+            
+2026-06-01 11:15:34,418 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:34,491 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0729s
+            
+2026-06-01 11:15:37,219 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:37,504 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:37,505 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:15:37,531 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:37,532 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:15:37,533 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:37,534 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:37,537 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0028s
+            
+2026-06-01 11:15:37,548 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:37,549 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0010s
+            
+2026-06-01 11:15:37,637 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.1042s
+            
+2026-06-01 11:15:38,133 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:38,134 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:15:38,159 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:38,160 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:38,161 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0022s
+            
+2026-06-01 11:15:38,162 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:38,163 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0015s
+            
+2026-06-01 11:15:38,173 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:38,174 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0010s
+            
+2026-06-01 11:15:38,227 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0665s
+            
+2026-06-01 11:15:40,128 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.9088s
+            
+2026-06-01 11:15:41,188 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:44,190 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:47,127 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 5.9388s
+            
+2026-06-01 11:15:47,177 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:47,492 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 3.3028s
+            
+2026-06-01 11:15:50,185 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:50,336 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 3.1590s
+            
+2026-06-01 11:15:52,834 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.6492s
+            
+2026-06-01 11:15:53,176 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:55,763 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.5874s
+            
+2026-06-01 11:15:56,185 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:15:58,674 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.4898s
+            
+2026-06-01 11:15:59,177 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:01,774 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.5968s
+            
+2026-06-01 11:16:02,642 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:05,173 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: POST
+            URL: http://192.168.1.39:5000/api/camera/detect_plate_exit
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:05,310 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.6682s
+            
+2026-06-01 11:16:06,130 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,130 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:16:06,153 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,154 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,155 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0026s
+            
+2026-06-01 11:16:06,158 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,160 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,161 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0034s
+            
+2026-06-01 11:16:06,164 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0038s
+            
+2026-06-01 11:16:06,172 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,174 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0019s
+            
+2026-06-01 11:16:06,235 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0803s
+            
+2026-06-01 11:16:06,695 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,696 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:16:06,718 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,720 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,721 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0024s
+            
+2026-06-01 11:16:06,721 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:16:06,735 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:06,736 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0011s
+            
+2026-06-01 11:16:07,832 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 400 BAD REQUEST
+            DURATION: 2.6585s
+            
+2026-06-01 11:16:08,612 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:08,613 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:16:08,630 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:08,631 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:08,631 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0014s
+            
+2026-06-01 11:16:08,632 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:16:08,642 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:08,642 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:16:10,004 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,005 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:10,019 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,020 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,021 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:16:10,021 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,023 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:16:10,030 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,031 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:16:10,070 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0505s
+            
+2026-06-01 11:16:10,708 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,709 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:16:10,735 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,736 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,737 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0022s
+            
+2026-06-01 11:16:10,737 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:16:10,750 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:10,750 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:11,548 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:11,549 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:11,565 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:11,566 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:11,567 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0019s
+            
+2026-06-01 11:16:11,567 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:11,569 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:16:11,579 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:11,579 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:16:11,616 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0502s
+            
+2026-06-01 11:16:12,092 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,093 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:12,111 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,113 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,113 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:16:12,114 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:16:12,126 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,127 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:16:12,569 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,570 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0011s
+            
+2026-06-01 11:16:12,594 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,595 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,597 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0026s
+            
+2026-06-01 11:16:12,597 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,601 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0032s
+            
+2026-06-01 11:16:12,609 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,610 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0010s
+            
+2026-06-01 11:16:12,675 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0797s
+            
+2026-06-01 11:16:12,847 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,865 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,867 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:16:12,888 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,889 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,889 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0019s
+            
+2026-06-01 11:16:12,890 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:16:12,906 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,907 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,911 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,912 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:12,915 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0025s
+            
+2026-06-01 11:16:12,917 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0105s
+            
+2026-06-01 11:16:12,921 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0140s
+            
+2026-06-01 11:16:12,922 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0112s
+            
+2026-06-01 11:16:12,937 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0904s
+            
+2026-06-01 11:16:14,187 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,188 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:14,205 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,206 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,206 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0015s
+            
+2026-06-01 11:16:14,208 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,209 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,210 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0021s
+            
+2026-06-01 11:16:14,211 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0022s
+            
+2026-06-01 11:16:14,219 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,220 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:14,267 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0614s
+            
+2026-06-01 11:16:14,740 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,741 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:16:14,759 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,761 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0015s
+            
+2026-06-01 11:16:14,765 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,767 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0014s
+            
+2026-06-01 11:16:14,777 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:14,778 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:15,561 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:15,561 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:15,579 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:15,579 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:15,580 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:15,581 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0022s
+            
+2026-06-01 11:16:15,582 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0014s
+            
+2026-06-01 11:16:15,587 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:15,587 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:16:15,626 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0465s
+            
+2026-06-01 11:16:16,748 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:16,749 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:16:16,768 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:16,769 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:16,769 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:16:16,770 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:16:16,776 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:16,777 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:16,780 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:16,784 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:16,785 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0015s
+            
+2026-06-01 11:16:16,790 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0096s
+            
+2026-06-01 11:16:16,791 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0137s
+            
+2026-06-01 11:16:16,793 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0164s
+            
+2026-06-01 11:16:19,102 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,102 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:19,120 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,121 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,121 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:16:19,122 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0009s
+            
+2026-06-01 11:16:19,127 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,127 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0004s
+            
+2026-06-01 11:16:19,784 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,785 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:19,802 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,803 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,804 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,805 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0032s
+            
+2026-06-01 11:16:19,806 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,807 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0022s
+            
+2026-06-01 11:16:19,810 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0038s
+            
+2026-06-01 11:16:19,819 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:19,819 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:19,857 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0535s
+            
+2026-06-01 11:16:20,427 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:20,427 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:20,452 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:20,453 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:20,453 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0020s
+            
+2026-06-01 11:16:20,454 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:16:20,469 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:20,470 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:22,398 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/vehicles/search/HHC-123
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:22,399 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 404 NOT FOUND
+            DURATION: 0.0016s
+            
+2026-06-01 11:16:28,876 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/vehicles/search/ABC-123
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:28,878 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0014s
+            
+2026-06-01 11:16:28,882 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/payments/photos?placa=ABC-123
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:28,883 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0015s
+            
+2026-06-01 11:16:32,167 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:32,169 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0019s
+            
+2026-06-01 11:16:32,186 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:32,187 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:32,188 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:16:32,188 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0009s
+            
+2026-06-01 11:16:32,200 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:32,201 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0004s
+            
+2026-06-01 11:16:59,255 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,256 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:59,273 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,274 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,275 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0021s
+            
+2026-06-01 11:16:59,275 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:16:59,303 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,304 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,307 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,309 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,310 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0077s
+            
+2026-06-01 11:16:59,310 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:16:59,313 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0085s
+            
+2026-06-01 11:16:59,316 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0092s
+            
+2026-06-01 11:16:59,835 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,835 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:16:59,852 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,853 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,854 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0019s
+            
+2026-06-01 11:16:59,854 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,856 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0013s
+            
+2026-06-01 11:16:59,865 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:16:59,865 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:16:59,902 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0483s
+            
+2026-06-01 11:17:00,269 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:00,270 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:17:00,297 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:00,298 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:00,299 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0025s
+            
+2026-06-01 11:17:00,300 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:17:00,312 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:00,314 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:00,315 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:00,319 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:00,320 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0014s
+            
+2026-06-01 11:17:00,325 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0133s
+            
+2026-06-01 11:17:00,328 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0130s
+            
+2026-06-01 11:17:00,330 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0155s
+            
+2026-06-01 11:17:09,030 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:09,030 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:17:09,047 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:09,048 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:09,049 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0017s
+            
+2026-06-01 11:17:09,049 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:17:09,059 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:09,060 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:17:56,644 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:56,645 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:17:56,663 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:56,664 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:56,665 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:56,666 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0028s
+            
+2026-06-01 11:17:56,667 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:56,667 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0020s
+            
+2026-06-01 11:17:56,669 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0020s
+            
+2026-06-01 11:17:56,677 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:56,678 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:17:56,722 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0584s
+            
+2026-06-01 11:17:57,139 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,140 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0010s
+            
+2026-06-01 11:17:57,160 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,161 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,161 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0017s
+            
+2026-06-01 11:17:57,162 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:17:57,174 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,175 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:17:57,529 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,529 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:17:57,550 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,550 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,551 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,553 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0033s
+            
+2026-06-01 11:17:57,553 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0019s
+            
+2026-06-01 11:17:57,564 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,565 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:17:57,619 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0686s
+            
+2026-06-01 11:17:57,777 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,848 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0706s
+            
+2026-06-01 11:17:57,973 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,974 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:17:57,995 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,996 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:57,997 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0023s
+            
+2026-06-01 11:17:57,997 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:17:58,004 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,007 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,012 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,012 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,016 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0032s
+            
+2026-06-01 11:17:58,016 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0116s
+            
+2026-06-01 11:17:58,021 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0092s
+            
+2026-06-01 11:17:58,022 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0154s
+            
+2026-06-01 11:17:58,424 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,425 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:17:58,445 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,446 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,447 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0021s
+            
+2026-06-01 11:17:58,447 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,449 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:17:58,458 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,459 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0008s
+            
+2026-06-01 11:17:58,515 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0688s
+            
+2026-06-01 11:17:58,829 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,830 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0012s
+            
+2026-06-01 11:17:58,848 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,849 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,850 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:17:58,850 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0012s
+            
+2026-06-01 11:17:58,863 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:58,863 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:17:59,139 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,139 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:17:59,160 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,161 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,163 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,163 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0029s
+            
+2026-06-01 11:17:59,164 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,165 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0021s
+            
+2026-06-01 11:17:59,167 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0027s
+            
+2026-06-01 11:17:59,177 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,178 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:17:59,239 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0775s
+            
+2026-06-01 11:17:59,434 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,481 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,482 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:17:59,494 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0602s
+            
+2026-06-01 11:17:59,501 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,503 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,504 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0029s
+            
+2026-06-01 11:17:59,505 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0021s
+            
+2026-06-01 11:17:59,519 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,520 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:17:59,892 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/entrada
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,892 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0009s
+            
+2026-06-01 11:17:59,920 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,922 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0017s
+            
+2026-06-01 11:17:59,927 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,928 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,935 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0062s
+            
+2026-06-01 11:17:59,949 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/camera.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:17:59,951 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:18:00,175 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:00,192 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0171s
+            
+2026-06-01 11:18:00,302 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.3746s
+            
+2026-06-01 11:18:00,424 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:00,479 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0553s
+            
+2026-06-01 11:18:01,357 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,359 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0016s
+            
+2026-06-01 11:18:01,378 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,379 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,380 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:18:01,381 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:18:01,386 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,386 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0005s
+            
+2026-06-01 11:18:01,939 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/pago
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,940 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0010s
+            
+2026-06-01 11:18:01,963 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,964 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,965 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0017s
+            
+2026-06-01 11:18:01,965 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0010s
+            
+2026-06-01 11:18:01,977 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:01,977 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0004s
+            
+2026-06-01 11:18:02,338 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/salida
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,339 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:18:02,355 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,356 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/camera/stream_ai
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,357 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,357 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0026s
+            
+2026-06-01 11:18:02,358 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0014s
+            
+2026-06-01 11:18:02,364 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,364 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:18:02,402 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0467s
+            
+2026-06-01 11:18:02,901 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,902 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0007s
+            
+2026-06-01 11:18:02,920 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,921 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,922 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0018s
+            
+2026-06-01 11:18:02,922 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:18:02,928 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/statistics
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,930 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,934 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/logs?per_page=50
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,936 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0068s
+            
+2026-06-01 11:18:02,937 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:02,941 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0040s
+            
+2026-06-01 11:18:02,942 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0131s
+            
+2026-06-01 11:18:02,942 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0084s
+            
+2026-06-01 11:18:05,814 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles?estado=pagado
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:05,817 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0025s
+            
+2026-06-01 11:18:06,838 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/admin/vehicles?estado=salido
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:06,840 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0019s
+            
+2026-06-01 11:18:07,813 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:07,814 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            
+2026-06-01 11:18:07,831 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/css/style.css
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:07,832 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/static/js/main.js
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:07,832 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0016s
+            
+2026-06-01 11:18:07,833 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 304 NOT MODIFIED
+            DURATION: 0.0011s
+            
+2026-06-01 11:18:07,841 | INFO | ParkingAI | 
+            REQUEST STARTED
+            METHOD: GET
+            URL: http://192.168.1.39:5000/api/admin/check-session
+            IP: 192.168.1.39
+            USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+            
+2026-06-01 11:18:07,841 | INFO | ParkingAI | 
+            REQUEST FINISHED
+            STATUS: 200 OK
+            DURATION: 0.0006s
+            

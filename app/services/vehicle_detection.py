@@ -3,8 +3,6 @@ Servicio de detección de vehículos usando YOLOv8
 """
 
 import cv2
-import numpy as np
-import os
 
 from ultralytics import YOLO
 
@@ -12,12 +10,7 @@ from ultralytics import YOLO
 class VehicleDetector:
     """Clase para detectar vehículos usando YOLOv8"""
 
-    VEHICLE_CLASSES = {
-        2: "car",
-        3: "motorcycle",
-        5: "bus",
-        7: "truck"
-    }
+    VEHICLE_CLASSES = {2: "car", 3: "motorcycle", 5: "bus", 7: "truck"}
 
     def __init__(self):
         """Inicializar detector"""
@@ -43,14 +36,16 @@ class VehicleDetector:
 
                     conf_score = float(box.conf[0].cpu().numpy())
 
-                    vehicles.append({
-                        "class": self.VEHICLE_CLASSES[cls],
-                        "x": int(x1),
-                        "y": int(y1),
-                        "w": int(x2 - x1),
-                        "h": int(y2 - y1),
-                        "conf": conf_score
-                    })
+                    vehicles.append(
+                        {
+                            "class": self.VEHICLE_CLASSES[cls],
+                            "x": int(x1),
+                            "y": int(y1),
+                            "w": int(x2 - x1),
+                            "h": int(y2 - y1),
+                            "conf": conf_score,
+                        }
+                    )
 
         return vehicles
 
@@ -63,7 +58,7 @@ class VehicleDetector:
             w = bbox["w"]
             h = bbox["h"]
 
-            vehicle_img = image[y:y+h, x:x+w]
+            vehicle_img = image[y : y + h, x : x + w]
 
         else:
 
@@ -122,13 +117,7 @@ class VehicleDetector:
 
             label = f"{det['class']} {det['conf']:.2f}"
 
-            cv2.rectangle(
-                annotated,
-                (x, y),
-                (x + w, y + h),
-                (0, 255, 0),
-                2
-            )
+            cv2.rectangle(annotated, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
             cv2.putText(
                 annotated,
@@ -137,7 +126,7 @@ class VehicleDetector:
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.5,
                 (0, 255, 0),
-                2
+                2,
             )
 
         return annotated

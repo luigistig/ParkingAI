@@ -3,7 +3,6 @@ Servicio de detección de placas vehiculares usando OpenCV
 """
 
 import cv2
-import numpy as np
 
 
 class PlateDetector:
@@ -195,48 +194,6 @@ class PlateDetector:
             plate_coords["h"],
         )
         return image[y : y + h, x : x + w]
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-        edges = cv2.dilate(edges, kernel, iterations=2)
-        edges = cv2.erode(edges, kernel, iterations=2)
-
-        # 3. Encontrar contornos
-        contours, _ = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
-        plates = []
-
-        # Filtrar contornos por características de placa
-        for contour in contours:
-            x, y, w, h = cv2.boundingRect(contour)
-
-            # Las placas típicamente tienen cierta relación de aspecto
-            aspect_ratio = float(w) / h if h > 0 else 0
-
-            # Filtros para identificar placas
-            if (
-                h > 20
-                and w > 60  # Tamaño mínimo
-                and 2 < aspect_ratio < 6  # Relación de aspecto típica de placas
-                and cv2.contourArea(contour) > 500
-            ):  # Área mínima
-
-                plates.append((x, y, w, h))
-
-        # Si usamos cascade classifier (si está disponible)
-        if self.cascade is not None:
-            cascade_plates = self.cascade.detectMultiScale(gray, 1.1, 4)
-            plates.extend(cascade_plates)
-
-        # Combinar y eliminar duplicados
-        plates = self._remove_duplicates(plates)
-
-        # Dibujar en la imagen si se solicita
-        if output_path:
-            img_marked = img.copy()
-            for x, y, w, h in plates:
-                cv2.rectangle(img_marked, (x, y), (x + w, y + h), (0, 255, 0), 2)
-            cv2.imwrite(output_path, img_marked)
-
-        return plates
 
     def extract_plate_roi(self, image_path, x, y, w, h, padding=10):
         """

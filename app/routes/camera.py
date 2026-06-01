@@ -12,7 +12,6 @@ from app import db
 from app.models import (
     Vehicle,
     SystemLog,
-    VehiclePhoto,
 )
 
 from app.services.plate_detection import PlateDetector
@@ -305,7 +304,6 @@ def detect_vehicle_auto():
                     500,
                 )
 
-        vehicle_detector = VehicleDetector()
         plate_detector = PlateDetector()
         ocr = PlateOCR()
 

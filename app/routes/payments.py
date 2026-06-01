@@ -4,7 +4,7 @@ Rutas para procesamiento de pagos
 
 from flask import request, jsonify
 from app import db
-from app.models import Vehicle, PaymentRecord, SystemLog, VehiclePhoto
+from app.models import Vehicle, PaymentRecord, VehiclePhoto
 from app.services.tariff import TariffCalculator
 from datetime import datetime
 
